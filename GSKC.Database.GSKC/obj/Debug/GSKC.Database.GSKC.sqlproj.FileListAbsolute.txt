@@ -1,7 +1,0 @@
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\bin\Debug\GSKC.Database.GSKC.dacpac
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\obj\Debug\Model.xml
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\obj\Debug\refactor.xml
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\obj\Debug\postdeploy.sql
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\obj\Debug\predeploy.sql
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\obj\Debug\GSKC.Database.dll
-C:\Users\funkycowboy\Documents\Visual Studio 2013\Projects\GSKC.Web\GSKC.Database.GSKC\obj\Debug\GSKC.Database.pdb
