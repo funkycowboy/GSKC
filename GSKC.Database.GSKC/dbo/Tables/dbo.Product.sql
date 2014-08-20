@@ -5,7 +5,7 @@
     [SectionID]       INT            NULL,
     [Name]            VARCHAR (255)  NULL,
     [Description]     VARCHAR (4000) NULL,
-    [Features ]       VARCHAR (4000) NULL,
+    [Features]       VARCHAR (4000) NULL,
     [Specifications]  VARCHAR (4000) NULL,
     [RetailCost]      MONEY          NULL,
     [MsrpCost]        MONEY          NULL,
