@@ -66,6 +66,7 @@
     <Folder Include="Security\" />
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\dbo.Pages.sql" />
@@ -113,5 +114,8 @@
     <Build Include="dbo\Stored Procedures\dbo.Lookup_Image_Del.sql" />
     <Build Include="dbo\Stored Procedures\dbo.spGetProductRecords.sql" />
     <Build Include="dbo\Stored Procedures\dbo.spGetProductOptions.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Snapshots\GSKC.Database.GSKC_20140820_13-01-07.dacpac" />
   </ItemGroup>
 </Project>
