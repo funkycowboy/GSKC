@@ -1,0 +1,25 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[AttFile] (Table)
+       [dbo].[AvailFile] (Table)
+       [dbo].[BrandFile] (Table)
+       [dbo].[BulletFile] (Table)
+       [dbo].[ClassFile] (Table)
+       [dbo].[CountryFile] (Table)
+       [dbo].[InvStatFile] (Table)
+       [dbo].[ItemCatFile] (Table)
+       [dbo].[PricingFile] (Table)
+       [dbo].[ProdFile] (Table)
+       [dbo].[SectionFile] (Table)
+
+** Supporting actions

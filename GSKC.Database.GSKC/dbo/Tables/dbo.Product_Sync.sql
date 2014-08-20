@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[Product_Sync] (
+    [ProductID]       INT            NOT NULL,
+    [SKU]             VARCHAR (15)   NULL,
+    [CategoryID]      INT            NULL,
+    [SectionID]       INT            NULL,
+    [Name]            VARCHAR (255)  NULL,
+    [Description]     VARCHAR (4000) NULL,
+    [Features ]       VARCHAR (4000) NULL,
+    [Specifications]  VARCHAR (4000) NULL,
+    [RetailCost]      MONEY          NULL,
+    [MsrpCost]        MONEY          NULL,
+    [ShippingCost]    MONEY          NULL,
+    [WholCost]        MONEY          NULL,
+    [DealerCost]      MONEY          NULL,
+    [ManufacturerID]  INT            NULL,
+    [ItemNumber]      VARCHAR (50)   NULL,
+    [Inventory]       INT            NULL,
+    [IsActive]        BIT            NOT NULL,
+    [IsFeatured]      BIT            NOT NULL,
+    [DateEntered]     SMALLDATETIME  NULL,
+    [EnteredByUserID] INT            NULL,
+    [DateUpdated]     SMALLDATETIME  NULL,
+    [UpdatedByUserID] INT            NULL,
+    [SupplierID]      INT            NULL,
+    [Weight]          FLOAT (53)     NULL
+);
+

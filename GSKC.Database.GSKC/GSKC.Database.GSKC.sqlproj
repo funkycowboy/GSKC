@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>GSKC.Database.GSKC</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b71b229c-29b1-46da-a2bb-a1d32e097302}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>GSKC.Database</RootNamespace>
+    <AssemblyName>GSKC.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <GenerateCreateScript>True</GenerateCreateScript>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\dbo.Pages.sql" />
+    <Build Include="dbo\Tables\dbo.DiscountTargetType.sql" />
+    <Build Include="dbo\Tables\dbo.Groups.sql" />
+    <Build Include="dbo\Tables\dbo.Subscribers.sql" />
+    <Build Include="dbo\Tables\dbo.Users.sql" />
+    <Build Include="dbo\Tables\dbo.Product.sql" />
+    <Build Include="dbo\Tables\dbo.UsersToGroups.sql" />
+    <Build Include="dbo\Tables\dbo.Contacts.sql" />
+    <Build Include="dbo\Tables\dbo.ASPSessionState.sql" />
+    <Build Include="dbo\Tables\dbo.Internal_FK_Definition_Storage.sql" />
+    <Build Include="dbo\Tables\dbo.PromoCodeDiscount.sql" />
+    <Build Include="dbo\Tables\dbo.Status.sql" />
+    <Build Include="dbo\Tables\dbo.Sites.sql" />
+    <Build Include="dbo\Tables\dbo.OrderItem.sql" />
+    <Build Include="dbo\Tables\dbo.SiteToPages.sql" />
+    <Build Include="dbo\Tables\dbo.PagesToGroups.sql" />
+    <Build Include="dbo\Tables\dbo.ProductHistory.sql" />
+    <Build Include="dbo\Tables\dbo.ProductSection.sql" />
+    <Build Include="dbo\Tables\dbo.Customer.sql" />
+    <Build Include="dbo\Tables\dbo.Lookup_Image.sql" />
+    <Build Include="dbo\Tables\dbo.Order.sql" />
+    <Build Include="dbo\Tables\dbo.PaymentDataTransferLog.sql" />
+    <Build Include="dbo\Tables\dbo.ProductCategory.sql" />
+    <Build Include="dbo\Tables\dbo.Client.sql" />
+    <Build Include="dbo\Tables\dbo.DiscountType.sql" />
+    <Build Include="dbo\Tables\dbo.ProductOption.sql" />
+    <Build Include="dbo\Tables\dbo.PromoCode.sql" />
+    <Build Include="dbo\Tables\dbo.Supplier.sql" />
+    <Build Include="dbo\Tables\dbo.Product_Sync.sql" />
+    <Build Include="dbo\Tables\dbo.Manufacturers_Sync.sql" />
+    <Build Include="dbo\Tables\dbo.Manufacturers.sql" />
+    <Build Include="Security\gskcdbuser.sql" />
+    <Build Include="Security\gskcdbuser_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Functions\dbo.SplitStrings_CTE.sql" />
+    <Build Include="dbo\Functions\dbo.fnSplitter.sql" />
+    <Build Include="dbo\Functions\dbo.fnSplitWithCTE.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.spGetPromoCode.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.spGetProduct.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.Lookup_Image_Sel_ByClientID.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.Lookup_Image_Ins.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.Lookup_Image_Upd.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.Lookup_Image_Del.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.spGetProductRecords.sql" />
+    <Build Include="dbo\Stored Procedures\dbo.spGetProductOptions.sql" />
+  </ItemGroup>
+</Project>
