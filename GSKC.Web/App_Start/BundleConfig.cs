@@ -46,7 +46,8 @@ namespace GSKC.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                 "~/Content/bootstrap.css",
                 "~/Content/offcanvas.css",
-                "~/Content/sticky-footer.css"));
+                "~/Content/sticky-footer.css",
+                "~/Content/Styles.css"));
 
         }
     }

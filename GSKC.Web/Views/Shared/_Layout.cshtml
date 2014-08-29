@@ -9,9 +9,16 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div style="width: 1200px; margin: 0 auto">
-        <div style="background: black; color: white;text-align:center; height:107px">Header</div>
-        <div class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0px">
+    <div>
+        <div style="background-color: #000;">
+            <div style="margin: 0 auto; width:458px; height: 107px; background: url(/Images/GSKC_Trailer_Side_mist_website2_bg.png); background-repeat: no-repeat;" /></div>
+        </div>
+        <div style="width: 100%">
+            <div style="position: absolute; z-index: 1000; top:-12px; left: 38%">
+                <img src="/Images/GSKC_Trailer_Side_mist_website_logo.png" style="max-width: 300px;"/>
+            </div>
+        </div>
+        <div class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -35,11 +42,11 @@
         </div>
 
         <div class="row row-offcanvas row-offcanvas-left">
-            <div id="SlidePanel" class="col-lg-3 col-md-3 col-sm-3 sidebar-offcanvas" style="background: red; text-align:center; min-height:100%; padding-left: 0; padding-right: 0">
+            <div id="SlidePanel" class="col-lg-3 col-md-3 col-sm-3 sidebar-offcanvas" style="min-height:100%; padding-left: 15px; padding-right: 0; background: #F1F1E4;">
                 @*Search Section*@
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
-                    <div class="panel-heading">Panel heading</div>
+                    <div class="panel-heading">Product Search</div>
                     <div class="panel-body">
                         <p>Information about panel stuff</p>
                     </div>
@@ -54,20 +61,40 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-9 col-xs-12" style="background: green; text-align:center; height: 400px;">
-                Main Content
-                <button type="button" class="btn btn-md glyphicon glyphicon-circle-arrow-right pull-left visible-xs" data-toggle="offcanvas"></button>
+            <div class="col-lg-6 col-md-6 col-sm-9 col-xs-12" style="padding-left: 0; padding-right: 0">
+                <div style="z-index: 1000; position:absolute;"><button type="button" class="btn btn-md glyphicon glyphicon-circle-arrow-right pull-left visible-xs" data-toggle="offcanvas"></button></div>
+                @RenderBody()
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="background: blue; text-align:center; height: 400px;">Social Section</div>
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding-left: 0; padding-right: 0">
+                <div style="width: 100%; float: left; margin-top: 0;background-color: #F1F1E4">
+                    <div style="border-bottom: 1px dotted #000;padding:10px; background-color: #ececec;background-color:#c4c2c2">
+                        <span class="SubHeaderFont" style="color:#fff">On the Road</span>
+                    </div>
+
+                    <div style="padding: 10px; background-color:#F1F1E4; text-align: center"><span style="font-weight: bold;">Look for us at the following events:</span></div>
+                    <div style="padding: 10px; background-color:#F1F1E4">
+                        <img alt="Loading" src="/Images/InterfaceElements/ajax-loader.gif" id="loading" style="padding-left: 50px; display:none;">
+                        <iframe id="testIframe" src="http://www.gatlinandsonsknifecompany.com/Calendar/Index.aspx" marginheight="0" marginwidth="0" width="100%" height="325" frameborder="0" scrolling="no"></iframe>
+                    </div>
+                    <div style="border-bottom: 1px dotted #000;padding:10px; background-color: #ececec;background-color:#c4c2c2">
+                        <span class="SubHeaderFont" style="color:#fff">Social Updates</span>
+                    </div>
+                    <div class="fb-like-box fb_iframe_widget" data-href="https://www.facebook.com/GatlinAndSons" data-width="268" data-show-faces="false" data-header="true" data-stream="true" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=448378241936683&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FGatlinAndSons&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=false&amp;stream=true&amp;width=268"><span style="vertical-align: bottom; width: 100%; height: 425px;"><iframe name="f6f809218" width="100%" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="http://www.facebook.com/plugins/like_box.php?app_id=448378241936683&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FW2xi4Tmu0YA.js%3Fversion%3D41%23cb%3Df243c93044%26domain%3Dwww.gatlinandsonsknifecompany.com%26origin%3Dhttp%253A%252F%252Fwww.gatlinandsonsknifecompany.com%252Ff2cab7e04%26relation%3Dparent.parent&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FGatlinAndSons&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=false&amp;stream=true&amp;width=268" style="border: none; visibility: visible; width: 100%; height: 425px;" class=""></iframe></span></div>
+                </div>
+
+            </div>
         </div>
-        @RenderBody()
+
 
         @*<div class="footer">
                 <div class="container">
                     <p class="text-muted">Place sticky footer content here.</p>
                 </div>
-            </div>*@
-
+            </div>*@<div class="footer">
+            <div class="container">
+                <p class="text-muted"></p>
+            </div>
+        </div>
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
 

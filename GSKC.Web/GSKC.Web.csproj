@@ -206,6 +206,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\offcanvas.css" />
     <Content Include="Content\sticky-footer.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -279,6 +280,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Images\category-fixed-blade.png" />
+    <Content Include="Images\category-folder.png" />
+    <Content Include="Images\category-folder1.png" />
+    <Content Include="Images\category-multi-blade.png" />
+    <Content Include="Images\category-throwing.png" />
+    <Content Include="Images\category-tomahaks.png" />
+    <Content Include="Images\GSKC_Trailer_Side_mist_website_bg.png" />
+    <Content Include="Images\HaveAKnifeDay_black.png" />
+    <Content Include="Images\slide-show-image-1.jpg" />
+    <Content Include="Images\slide-show-image-10.jpg" />
+    <Content Include="Images\slide-show-image-2.jpg" />
+    <Content Include="Images\slide-show-image-3.jpg" />
+    <Content Include="Images\slide-show-image-4.jpg" />
+    <Content Include="Images\slide-show-image-5.jpg" />
+    <Content Include="Images\slide-show-image-6.jpg" />
+    <Content Include="Images\slide-show-image-7.jpg" />
+    <Content Include="Images\slide-show-image-8.jpg" />
+    <Content Include="Images\slide-show-image-9.png" />
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
@@ -319,19 +338,6 @@
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />

@@ -1,1 +1,120 @@
-﻿
+﻿<div style="width:100%">
+    <div style="position: relative">
+        <div id="ImageContainer" style="width:100%; height: 260px; overflow:hidden; padding: 0">
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-10.jpg" style="width: 100%"/></div>            
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-8.jpg" style="width: 100%" /></div>
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-7.jpg" style="width: 100%" /></div>
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-6.jpg" style="width: 100%" /></div>
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-5.jpg" style="width: 100%" /></div>
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-4.jpg" style="width: 100%" /></div>
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-3.jpg" style="width: 100%" /></div>
+            <div class="image" style="overflow:hidden;"><img src="/Images/slide-show-image-2.jpg" style="width: 100%" /></div>
+            <div style="clear:both"></div>
+        </div>
+
+        @*<div style="background-color: #000; opacity: .5;filter: alpha(opacity=50);width: 100%;height: 74px;position: absolute; bottom: 0"></div>*@
+        <div style="width: 100%;  text-align:center">
+            <div class="category-image-1 thumb" style="margin-left: 0;" data-product="109-Knives - Fixed Blades"><div>Fixed Blades</div></div>
+            <div class="category-image-2 thumb" data-product="28-Knives - Folders"><div>Folders</div></div>
+            <div class="category-image-3 thumb" data-product="73-Knives - Multi-Blade"><div>Multi-blade</div></div>
+            <div class="category-image-4 thumb" data-product="14-Knives - Throwing Knives"><div>Throwing</div></div>
+            <div class="category-image-5 thumb" data-product="25-Knives - Axes & Hatchets"><div>Tomahaks</div></div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <div style="width: 100%; padding: 10px;">
+        <div style="padding-bottom:7px; padding: 0 10px 0 10px;">
+        <h1 class="SpecialsFont">Welcome to Gatlin and Sons Knife Company&trade;</h1>
+    </div>
+    <div style="text-align:justify;padding: 15px;">
+        <p>
+            We carry a broad selection of knives including tactical, utility, hunting, fishing and collectible
+            pocket knives from top-of-the-line brands such as Spyderco, Kabar, SOG, Case, Buck, Gerber, Boker, Kershaw, Smith & Wesson and many many more.
+        </p>
+
+        <p>
+            And we don't do just knives!  Are you a hunter, fisherman and/or outdoorsman? If so, then we've got you covered too!
+            We also carry a huge selection of gear/equipment for the outdoor enthusiast.
+        </p>
+
+        <div style="text-align:left"><img alt="Have a Knife Day!" src="/Images/HaveAKnifeDay_black.png" style="width: 70px; margin-right: 10px; margin-bottom: 10px;" align="right" />Our GSKC team thanks you for stopping in and as always...</div>
+
+    </div>
+    <!-- Begin MAIL CHIMP CODE-->
+    <div id="mc_embed_signup" style="border-bottom: 1px dotted #000;border-top: 1px dotted #000; background-color: #F1F1E4; margin-top: 50px; padding: 10px 10px">
+        <p>
+            <strong>Subscribe to our mailing list.</strong> <br />
+            Sign up for our mailing list to receive our latest product information and newsletter.
+        </p>
+
+        <form action="http://gatlinandsonsknifecompany.us1.list-manage.com/subscribe/post?u=7dddfd0796521ed179b7c28ac&amp;id=81dcc54a69" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+            <div>
+                <div id="mce-responses">
+                    <div class="SuccessFont" id="mce-error-response" style="display:none"></div>
+                    <div class="SuccessFont" id="mce-success-response" style="display:none"></div>
+                </div>
+                <input name="EMAIL" id="mce-EMAIL" type="text" value="Enter your email address here" size="30" class="FormElementsFont" onclick="this.value = '';">
+                &nbsp;
+                <button class="orange" type="submit" name="submit">Subscribe</button>
+            </div>
+        </form>
+    </div>
+    <!-- End MAIL CHIMP CODE-->
+
+    <div>
+        <!-- PayPal Logo -->
+        <table border="0" style="padding-top:5px" cellspacing="0" align="center">
+            <tr>
+                <td align="center"></td>
+            </tr>
+            <tr>
+                <td align="center"><a href="#" onclick="javascript:window.open('https://www.paypal.com/us/cgi-bin/webscr?cmd=xpt/Marketing/popup/OLCWhatIsPayPal-outside','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400, height=350');"><img src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border="0" alt="Solution Graphics"></a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+
+<div style="clear:both"></div>	
+
+@section Scripts {
+<script>
+    var home = {
+        bindEvents: function () {
+            $(".thumb").click(function () {
+                var productCategoryId = $.trim($(this).attr("data-product").split("-")[0]);
+                //alert(productCategoryId);
+                $("#Category-" + productCategoryId, "#SearchForm").prop("checked", true).change();
+                $("#SearchForm").submit();
+            });
+
+        },
+        slide: function (element) {
+            element.animate({ left: '0px', opacity: 1 }, null,
+            function () {
+                element.prev("div.image").css({ left: '-250px', opacity: 0 });
+            });
+
+            var nextImage = element.next("div.image");
+
+            if (nextImage.length > 0) {
+                setTimeout(function () { home.slide(nextImage); }, 7000);
+            } else {
+                setTimeout(function () {
+
+                    home.slide($("div.image:first"));
+                    $("div.image:last").css({ left: '-250px', opacity: 0 });
+                },
+             7000);
+
+            }
+        }
+
+    }
+
+    $(function () {
+        home.bindEvents();
+        home.slide($("div.image:first"));
+    });
+</script>
+}
