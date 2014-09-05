@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-overrides.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -280,6 +281,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Images\bg_button-large-hover.gif" />
+    <Content Include="Images\bg_button-large.gif" />
+    <Content Include="Images\bg_button.gif" />
     <Content Include="Images\category-fixed-blade.png" />
     <Content Include="Images\category-folder.png" />
     <Content Include="Images\category-folder1.png" />

@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -910,12 +910,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #428bca;
+  color: #333;/*#428bca;*/
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #000; /*#2a6496;*/
   text-decoration: underline;
 }
 a:focus {
@@ -3586,12 +3586,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 7px 0;
+  background: url(/Images/bg_button-large.gif);
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
   background-color: #eee;
+  background: url(/Images/bg_button-large-hover.gif);
 }
 .nav > li.disabled > a {
   color: #777;
@@ -3713,11 +3715,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   width: 100%;
 }
 .nav-justified > li {
+  border-right: 1px dotted #eee;
   float: none;
 }
 .nav-justified > li > a {
   margin-bottom: 5px;
   text-align: center;
+  white-space: nowrap;
+  font-size: 11px;
 }
 .nav-justified > .dropdown .dropdown-menu {
   top: auto;
@@ -3727,6 +3732,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .nav-justified > li {
     display: table-cell;
     width: 1%;
+    float: none;
   }
   .nav-justified > li > a {
     margin-bottom: 0;
@@ -3768,13 +3774,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
+  min-height: 0;
+  margin-bottom: 0;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
   .navbar {
-    border-radius: 4px;
+    border-radius: 0;
   }
 }
 @media (min-width: 768px) {
@@ -3839,8 +3845,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
+    /*margin-right: 0;
+    margin-left: 0;*/
   }
 }
 .navbar-static-top {
@@ -3905,6 +3911,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+  z-index: 1000;
 }
 .navbar-toggle:focus {
   outline: 0;
