@@ -2312,7 +2312,7 @@ label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
-  font-weight: bold;
+  font-weight: normal;
 }
 input[type="search"] {
   -webkit-box-sizing: border-box;
@@ -3939,6 +3939,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
 }
 @media (max-width: 767px) {
+    #SlidePanel {
+        padding-left: 30px;
+    }
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -4825,7 +4828,7 @@ a.thumbnail.active {
   list-style: none;
 }
 .list-group {
-  padding-left: 0;
+  padding-left: 7px;
   margin-bottom: 20px;
 }
 .list-group-item {

@@ -1,0 +1,83 @@
+﻿@*Search Section*@
+
+<script src="~/Areas/ProductSearch/app/ProductSearch.js"></script>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Product Search</div>
+    @*<div class="panel-body">
+        <p>Information about panel stuff</p>
+    </div>*@
+
+    <!-- Search by Brand ------------------------------------------------------------------------------------------->
+
+    <div class="filter-header" style="margin: 11px 0 0 0">
+        <div class="button-arrow" style="float:left; margin-left: 5px"></div>
+        <div style="font-weight: bold; float:left; margin: 2px 5px;">Search by Brand</div>
+        <div class="uncheck-all" style="float: left; cursor: pointer;margin: 5px 9px" title="Uncheck All"></div>
+        <div style="clear: both"></div>
+        <div class="content" style="margin-left: 0; margin-bottom:10px">
+            <ul style="list-style:none; color: #f08e02"></ul>
+        </div>
+        <div style="margin-top: 11px;"><input type="text" class="filter-text" placeholder="Filter Options" style="padding-left: 5px; width: 100%;margin-left: 0; border: 1px solid gray; height: 21px" /></div>
+    </div>
+    <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height: 200px; margin-top:-1px;">
+        <ul class="list-group" data-bind="foreach: manufacturers" style="list-style:none">
+            <li data-bind="click: $parent.clickIt">
+                <input type="checkbox" data-bind="checked: clicked, attr: {id:'Brand-' + ManufacturerId(), value: ManufacturerId() + '-' + Name()}" title="Click to add" name="ManufacturerID" />
+                <label data-bind="attr: {for:'Brand-' + ManufacturerId()}" title="Click to Add"><!--ko text: Name--><!--/ko--></label>
+            </li>
+        </ul>
+    </div> 
+
+    <!-- Search by Price ------------------------------------------------------------------------------------------->
+
+    <div style="margin: 11px 0 10px 0">
+        <div class="button-arrow" style="float:left;margin-left: 5px"></div><div style="font-weight: bold; float:left; margin: 2px 5px;">Search by Price</div>
+        <!--<div class="check-all" style="float: right; cursor: pointer; margin: 0 5px;"title="Check All"></div>-->
+        <div class="uncheck-all" style="float: left; cursor: pointer; margin: 5px 18px" title="Uncheck All"></div>
+        <div style="clear: both"></div>
+        <div style="margin-top: -15px;"><input type="text" class="filter-text" placeholder="Filter Options" style="display: none; padding-left: 5px; width: 203px;margin-left: 5px; " /></div>
+        <div class="content" style="margin-left: 0">
+            <ul style="list-style:none; color: #f08e02"></ul>
+        </div>
+    </div>
+    <div class="content filter-list rounded-corner-noscroll">
+        <ul class="list-group" data-bind="foreach: pricingCategories" style="list-style:none">
+            <li data-bind="click: $parent.clickIt">
+                <input type="checkbox" data-bind="checked: clicked, attr: {id : 'Price-' + Id(), value: Price()}" name="Price" title="Click to Add" />
+                <label data-bind="attr: {for: 'Price-' + Id()}" title="Click to add"><!--ko text: Price--><!--/ko--></label>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Search by Category ------------------------------------------------------------------------------------------->
+
+    <div class="filter-header" style="margin: 11px 0 0 0">
+        <div class="button-arrow" style="float:left;margin-left: 5px"></div><div style="font-weight: bold; float:left; margin: 2px 5px;">Search by Category</div>
+        <div class="uncheck-all" style="float: left; cursor: pointer; margin: 5px 0px" title="Uncheck All"></div>
+        <div style="clear: both"></div>
+        <div class="content" style="margin-left: 0">
+            <ul style="list-style:none; color: #f08e02"></ul>
+        </div>
+        <div style="margin-top: 11px;"><input type="text" class="filter-text" placeholder="Type to Filter Options" style="padding-left: 5px; width: 100%;margin-left: 0; border: 1px solid gray;height: 21px" /></div>
+    </div>
+
+    <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height: 200px; margin-top:-1px;">
+        <ul class="list-group" data-bind="foreach: productCategories" style="list-style:none">
+            <li data-bind="click: $parent.clickIt">
+                <input type="checkbox" data-bind="checked: clicked, attr: {id : 'Category-' + ProductCategoryId(), value: ProductCategoryId() + '-' + Name()}" name="ProductCategoryID" title="Click to Add" />
+                <label data-bind="attr: {for: 'Category-' + ProductCategoryId()}" title="Click to add"><!--ko text: Name--><!--/ko--></label>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>    
+   
+    $(function () {
+        GSKC.GetProductInfo();
+    });
+
+</script>
+

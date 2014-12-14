@@ -22,7 +22,9 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -191,6 +193,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Areas\ProductSearch\Controllers\HomeController.cs" />
+    <Compile Include="Areas\ProductSearch\Models\SearchCriteriaModifyViewModel.cs" />
+    <Compile Include="Areas\ProductSearch\Models\SearchCriteriaBaseViewModel.cs" />
+    <Compile Include="Areas\ProductSearch\ProductSearchAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -369,6 +375,9 @@
     <Content Include="Images\category-multi-blade.png" />
     <Content Include="Images\category-throwing.png" />
     <Content Include="Images\category-tomahaks.png" />
+    <Content Include="Images\checkbox-check-hover.png" />
+    <Content Include="Images\checkbox-uncheck-hover.png" />
+    <Content Include="Images\checkbox-uncheck.png" />
     <Content Include="Images\GSKC_Trailer_Side_mist_website_bg.png" />
     <Content Include="Images\HaveAKnifeDay_black.png" />
     <Content Include="Images\slide-show-image-1.jpg" />
@@ -381,6 +390,7 @@
     <Content Include="Images\slide-show-image-7.jpg" />
     <Content Include="Images\slide-show-image-8.jpg" />
     <Content Include="Images\slide-show-image-9.png" />
+    <Content Include="Images\ui-icons_454545_256x240.png" />
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
@@ -393,6 +403,9 @@
     <Content Include="Content\normalize.css.map">
       <DependentUpon>normalize.css</DependentUpon>
     </Content>
+    <Content Include="Areas\ProductSearch\Views\Web.config" />
+    <Content Include="Areas\ProductSearch\Views\Shared\Index.cshtml" />
+    <Content Include="Areas\ProductSearch\Views\Shared\Index - Copy.cshtml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -417,8 +430,10 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-2.2.0.debug.js" />
-    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\knockout-3.2.0.debug.js" />
+    <Content Include="Scripts\knockout-3.2.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\offcanvas.js" />
     <Content Include="Web.config" />
@@ -452,6 +467,23 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GSKC.BusinessObjects\GSKC.BusinessObjects.csproj">
+      <Project>{464146e7-457c-47af-8a54-29f8c5c20651}</Project>
+      <Name>GSKC.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSKC.Repository\GSKC.Repository.csproj">
+      <Project>{217af364-0d35-4de8-aa05-bb736fa84822}</Project>
+      <Name>GSKC.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GSKC.Service\GSKC.Service.csproj">
+      <Project>{6489fe0e-b2f8-480f-9683-9e42434c1d10}</Project>
+      <Name>GSKC.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Areas\ProductSearch\app\ProductSearch.ts" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -482,6 +514,13 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

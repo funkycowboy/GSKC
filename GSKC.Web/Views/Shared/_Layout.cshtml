@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
 </head>
 <body>
     <div>
@@ -45,24 +48,8 @@
     </div>
 
     <div class="row row-offcanvas row-offcanvas-left">
-        <div id="SlidePanel" class="col-lg-3 col-md-3 col-sm-3 sidebar-offcanvas" style="min-height:100%; padding-left: 15px; padding-right: 0; background: #F1F1E4;">
-            @*Search Section*@
-            <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading">Product Search</div>
-                <div class="panel-body">
-                    <p>Information about panel stuff</p>
-                </div>
-
-                <!-- List group -->
-                <ul class="list-group">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-            </div>
+        <div id="SlidePanel" class="col-lg-3 col-md-3 col-sm-3 sidebar-offcanvas" style="min-height:100%; padding-right: 0; background: #F1F1E4;">
+            @Html.Action("Index", "Home", new { Area = "ProductSearch" })
         </div>
         <div class="col-lg-6 col-md-6 col-sm-9 col-xs-12" style="padding-left: 0; padding-right: 0">
             <div style="z-index: 1000; position:absolute;"><button type="button" class="btn btn-md glyphicon glyphicon-search pull-left visible-xs" data-toggle="offcanvas"></button></div>
@@ -99,7 +86,7 @@
             <p class="text-muted"></p>
         </div>
     </div>*@
-    @Scripts.Render("~/bundles/jquery")
+
     @Scripts.Render("~/bundles/bootstrap")
 
 
@@ -115,8 +102,8 @@
             }
             return false;
         });
+
     </script>
-    </div>
 </body>
 
 </html>

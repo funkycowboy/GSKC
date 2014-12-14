@@ -1,0 +1,30 @@
+﻿@*Search Section*@
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Product Search</div>
+    <div class="panel-body">
+        <p>Information about panel stuff</p>
+    </div>
+
+    <!-- List group -->
+    <ul class="list-group" data-bind="foreach: productCategories">
+        <li class="list-group-item"><span data-bind="text: Name" style="white-space: normal"></span></li>
+    </ul>
+</div>
+
+<script>
+
+    function SearchCriteriaBaseViewModel(data) {
+        var self = this;
+        debugger;
+        self.productCategories = ko.mapping.fromJS(data);                         
+    }
+
+    $(function () {
+        $.getJSON("/ProductSearch/Home/GetProductCategorys", function (data) {
+            ko.applyBindings(new SearchCriteriaBaseViewModel(data));
+        });
+    });
+
+</script>
+
