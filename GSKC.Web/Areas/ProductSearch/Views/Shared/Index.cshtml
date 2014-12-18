@@ -1,7 +1,5 @@
 ﻿@*Search Section*@
 
-<script src="~/Areas/ProductSearch/app/ProductSearch.js"></script>
-
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">Product Search</div>
@@ -76,7 +74,10 @@
 <script>    
    
     $(function () {
-        GSKC.GetProductInfo();
+
+        require(['productSearch'], function (search) {
+            search.getProductInfo()
+        });     
     });
 
 </script>
