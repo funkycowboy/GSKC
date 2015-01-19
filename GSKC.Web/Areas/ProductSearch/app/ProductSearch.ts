@@ -16,7 +16,7 @@ function getProductInfo() {
             // fire callback with new value of an observable bound via 'html' binding
             callback(element);
         }   
-    }
+    };
     
     var searchCriteriaBaseViewModel = function (data) {
         var self = this;

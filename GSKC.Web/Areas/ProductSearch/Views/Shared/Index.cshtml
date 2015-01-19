@@ -42,7 +42,7 @@
                     <li data-bind="click: function(data, event) { $parent.addSelected('manufacturer', data, event) }" style="padding-top:7px">
                         <div class="ellipsis">
                             <input type="checkbox" data-bind="attr: {id:'Brand-' + ManufacturerId(), value: ManufacturerId() + '-' + Name()}" title="Click to add" name="ManufacturerID" />
-                            <label style="display: inline;" data-bind="attr: {for:'Brand-' + ManufacturerId(), title: 'Click to add ' + Name()}" title="Click to Add"><span style="color:#f08e02; display: inline-block; width:30px">(<!--ko text: Count()--><!--/ko-->)</span> <!--ko text: Name()--><!--/ko--><!--commentout-ko text: (Name().length > 20 ? Name().substring(0, 20) + '...' : Name)--><!--/ko--></label>
+                            <label style="display: inline;" data-bind="attr: {for:'Brand-' + ManufacturerId(), title: 'Click to add ' + Name()}" title="Click to Add"><span style="color:#f08e02; display: inline-block; width:40px">(<!--ko text: Count()--><!--/ko-->)</span> <!--ko text: Name()--><!--/ko--><!--commentout-ko text: (Name().length > 20 ? Name().substring(0, 20) + '...' : Name)--><!--/ko--></label>
                         </div>
 
 </li>
@@ -65,8 +65,8 @@
             <div class="content" style="margin-left: 0">
                 <ul data-bind="foreach: {data : selectedPriceRanges, afterAdd: animate}, visible: $root.showSelectedPrice" style="margin-bottom: 0;list-style:none; color: #f08e02;margin-left:-35px;">
                     <li data-bind="click: function(data, event) { $parent.removeSelected('price', data, event) }" style="display: none; padding-top:7px">
-                        <input type="checkbox" data-bind="checked: clicked, attr: {id:'Price-' + Id, value: Price}" title="Click to Remove" name="Price" />
-                        <label data-bind="attr: {for:'Price-' + Id, title: 'Click to remove ' + Name()}" ><!--ko text: Price--><!--/ko--></label>
+                        <input type="checkbox" data-bind="checked: clicked, attr: {id:'Price-' + PriceRangeId, value: PriceRangeId}" title="Click to Remove" name="Price" />
+                        <label data-bind="attr: {for:'Price-' + PriceRangeId, title: 'Click to remove ' + Name()}"><!--ko text: Name--><!--/ko--></label>
                     </li>
                 </ul>
             </div>
@@ -75,8 +75,8 @@
                 <ul class="list-group" data-bind="foreach: {data : priceRanges, afterAdd: animate }" style="list-style:none;margin-bottom:0">
                     <li data-bind="click: function(data, event) { $parent.addSelected('price', data, event) }" style="padding-top: 7px">
                         <div style="max-width:250px;white-space: nowrap;">
-                            <input type="checkbox" data-bind="checked: clicked, attr: {id : 'Price-' + Id(), value: Price()}" name="Price" title="Click to Add" />
-                            <label data-bind="attr: {for: 'Price-' + Id(), title: 'Click to add ' + Price()}" title="Click to add"><span style="color:#f08e02;display: inline-block; width:30px">(1)</span> <!--ko text: Price--><!--/ko--></label>
+                            <input type="checkbox" data-bind="checked: clicked, attr: {id : 'Price-' + PriceRangeId(), value: PriceRangeId()}" name="Price" title="Click to Add" />
+                            <label data-bind="attr: {for: 'Price-' + PriceRangeId(), title: 'Click to add ' + Name()}"><span style="color:#f08e02;display: inline-block; width:40px">(<!--ko text: Count()--><!--/ko-->)</span> <!--ko text: Name()--><!--/ko--></label>
                         </div>
 </li>
                 </ul>
@@ -112,7 +112,7 @@
                         <div class="ellipsis">
                             <input type="checkbox" data-bind="checked: clicked, attr: {id : 'Category-' + ProductCategoryId(), value: ProductCategoryId() + '-' + Name()}" name="ProductCategoryID" title="Click to Add" />
                             <label style="display: inline;" data-bind="attr: {for: 'Category-' + ProductCategoryId(), title: 'Click to add ' + Name()}">
-                                <span style="color:#f08e02;display: inline-block; width:30px">(<!--ko text: Count()--><!--/ko-->)</span> <span><!--ko text: Name() --><!--/ko--> </span>
+                                <span style="color:#f08e02;display: inline-block; width:40px">(<!--ko text: Count()--><!--/ko-->)</span> <span><!--ko text: Name() --><!--/ko--> </span>
                             </label>
                         </div>
                         @*</div>*@

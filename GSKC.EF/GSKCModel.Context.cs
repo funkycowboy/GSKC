@@ -12,6 +12,8 @@ namespace GSKC.EF
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class GSKCEntities : DbContext
     {
@@ -30,5 +32,10 @@ namespace GSKC.EF
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductSection> ProductSections { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+    
+        public virtual ObjectResult<GetPriceRanges_Result> GetPriceRanges()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPriceRanges_Result>("GetPriceRanges");
+        }
     }
 }

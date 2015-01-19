@@ -19,34 +19,41 @@ namespace GSKC.Service
             Mapper.CreateMap<EF.ProductCategory, ProductCategory>();
             Mapper.CreateMap<EF.Manufacturer, Manufacturer>();
             Mapper.CreateMap<EF.Product, Product>();
+            Mapper.CreateMap<EF.GetPriceRanges_Result, ProductPrice>();
 
         }
 
         public List<ProductCategory> GetProductCategories()
         {
-            var categories = (from pc in this.productSearchRepository.GetProductCategories()
+            return (from pc in this.productSearchRepository.GetProductCategories()
                           join p in this.productSearchRepository.GetProducts() on pc.ProductCategoryID equals p.CategoryID into temp
                             select new ProductCategory()
                               {
                                   Name = pc.Name,
                                   ProductCategoryId = pc.ProductCategoryID,
                                   Count = temp.Count()
-                              });            
-            return Mapper.Map<List<ProductCategory>>(categories);
+                              }).ToList();            
+        }
+
+        public List<ProductPrice> GetPriceRanges()
+        {
+            return this.productSearchRepository.GetPriceRanges().Select(x => new ProductPrice(){
+                Name = x.Name,
+                PriceRangeId = x.PriceRangeId,
+                Count = x.Count.Value
+            }).ToList();
         }
 
         public List<Manufacturer> GetProductManufacturers()
         {
-            var productManufacturers = (from pm in this.productSearchRepository.GetProductManufacturers()
+            return (from pm in this.productSearchRepository.GetProductManufacturers()
              join p in this.productSearchRepository.GetProducts() on pm.ManufacturerID equals p.ManufacturerID into temp
              select new Manufacturer()
              {
                  Name = pm.Name,
                  ManufacturerId = pm.ManufacturerID,
                  Count = temp.Count()
-             });
-
-            return Mapper.Map<List<Manufacturer>>(productManufacturers);
+             }).ToList();
         }
 
         public List<Product> GetFeaturedProducts()

@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetPriceRanges_Result.cs">
+      <DependentUpon>GSKCModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GSKCModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

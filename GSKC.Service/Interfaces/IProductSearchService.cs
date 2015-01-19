@@ -11,5 +11,6 @@ namespace GSKC.Service
         List<ProductCategory> GetProductCategories();
         List<Manufacturer> GetProductManufacturers();
         List<Product> GetFeaturedProducts();
+        List<ProductPrice> GetPriceRanges();
     }
 }

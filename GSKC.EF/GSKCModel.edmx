@@ -166,6 +166,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="GetPriceRanges" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="GSKCModelStoreContainer">
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
@@ -239,6 +240,7 @@
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Product" EntitySet="Products" />
           </AssociationSet>
+          <FunctionImport Name="GetPriceRanges" ReturnType="Collection(GSKCModel.GetPriceRanges_Result)" />          
         </EntityContainer>
         <EntityType Name="ProductCategory">
           <Key>
@@ -415,6 +417,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="GetPriceRanges_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="PriceRangeId" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="Count" Nullable="true" />
+        </ComplexType>        
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -503,6 +510,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetPriceRanges" FunctionName="GSKCModel.Store.GetPriceRanges">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="GSKCModel.GetPriceRanges_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PriceRangeId" ColumnName="PriceRangeId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
