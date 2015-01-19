@@ -27,5 +27,8 @@ namespace GSKC.EF
     
         public virtual DbSet<ProductCategory> ProductCategories { get; set; }
         public virtual DbSet<Manufacturer> Manufacturers { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductSection> ProductSections { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
     }
 }

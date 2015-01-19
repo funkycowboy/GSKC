@@ -10,5 +10,8 @@ namespace GSKC.Repository
     {
         IQueryable<ProductCategory> GetProductCategories();
         IQueryable<Manufacturer> GetProductManufacturers();
+        IQueryable<Product> GetProducts();
+        IQueryable<Supplier> GetSuppliers();
+        IQueryable<ProductSection> GetProductSections();
     }
 }

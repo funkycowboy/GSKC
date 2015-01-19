@@ -7,7 +7,7 @@
     </div>
 
     <!-- List group -->
-    <ul class="list-group" data-bind="foreach: productCategories">
+    <ul class="list-group" data-bind="foreach: categories">
         <li class="list-group-item"><span data-bind="text: Name" style="white-space: normal"></span></li>
     </ul>
 </div>
@@ -17,7 +17,7 @@
     function SearchCriteriaBaseViewModel(data) {
         var self = this;
         debugger;
-        self.productCategories = ko.mapping.fromJS(data);                         
+        self.categories = ko.mapping.fromJS(data);                         
     }
 
     $(function () {

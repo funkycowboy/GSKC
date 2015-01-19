@@ -8,6 +8,15 @@
         <EntityTypeShape EntityType="GSKCModel.ProductCategory" Width="2" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <AssociationConnector Association="GSKCModel.FK_ProductCategory_ProductCategory" />
         <EntityTypeShape EntityType="GSKCModel.Manufacturer" Width="1.5" PointX="3" PointY="2.5" />
+        <EntityTypeShape EntityType="GSKCModel.Product" Width="1.5" PointX="5.25" PointY="0.75" />
+        <AssociationConnector Association="GSKCModel.FK_Product_Manufacturers" />
+        <AssociationConnector Association="GSKCModel.FK_Product_Product" />
+        <AssociationConnector Association="GSKCModel.FK_Product_Product1" />
+        <AssociationConnector Association="GSKCModel.FK_Product_ProductCategory" />
+        <EntityTypeShape EntityType="GSKCModel.ProductSection" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="GSKCModel.Supplier" Width="1.5" PointX="3" PointY="9.25" />
+        <AssociationConnector Association="GSKCModel.FK_Product_ProductSection" />
+        <AssociationConnector Association="GSKCModel.FK_Product_Supplier" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

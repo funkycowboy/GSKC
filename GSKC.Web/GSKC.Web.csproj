@@ -103,6 +103,7 @@
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
       <Private>True</Private>
@@ -114,9 +115,11 @@
     </Reference>
     <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -179,6 +182,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Contact\ContactAreaRegistration.cs" />
+    <Compile Include="Areas\Contact\Controllers\HomeController.cs" />
+    <Compile Include="Areas\FeaturedProducts\Controllers\FeaturedController.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -193,10 +199,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Areas\FeaturedProducts\FeaturedProductsAreaRegistration.cs" />
     <Compile Include="Areas\ProductSearch\Controllers\HomeController.cs" />
     <Compile Include="Areas\ProductSearch\Models\SearchCriteriaModifyViewModel.cs" />
     <Compile Include="Areas\ProductSearch\Models\SearchCriteriaBaseViewModel.cs" />
     <Compile Include="Areas\ProductSearch\ProductSearchAreaRegistration.cs" />
+    <Compile Include="Areas\Support\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Support\SupportAreaRegistration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -367,6 +376,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Images\ajax-loader.gif" />
     <Content Include="Images\bg_button-large-hover.gif" />
     <Content Include="Images\bg_button-large.gif" />
     <Content Include="Images\bg_button.gif" />
@@ -379,8 +389,57 @@
     <Content Include="Images\checkbox-check-hover.png" />
     <Content Include="Images\checkbox-uncheck-hover.png" />
     <Content Include="Images\checkbox-uncheck.png" />
+    <Content Include="Images\Deal.png" />
+    <Content Include="Images\GSKC_Trailer_Side_mist_website2_bg.png" />
     <Content Include="Images\GSKC_Trailer_Side_mist_website_bg.png" />
+    <Content Include="Images\GSKC_Trailer_Side_mist_website_logo.png" />
     <Content Include="Images\HaveAKnifeDay_black.png" />
+    <Content Include="Images\Knives\Full\HOTL-DC-1.jpg" />
+    <Content Include="Images\Knives\Full\JHK-11.jpg" />
+    <Content Include="Images\Knives\Full\JHK-12.jpg" />
+    <Content Include="Images\Knives\Full\JHK-13.jpg" />
+    <Content Include="Images\Knives\Full\JHK-15.jpg" />
+    <Content Include="Images\Knives\Full\JHK-17.jpg" />
+    <Content Include="Images\Knives\Full\JHK-18.jpg" />
+    <Content Include="Images\Knives\Full\JHK-19.jpg" />
+    <Content Include="Images\Knives\Full\JHK-2.jpg" />
+    <Content Include="Images\Knives\Full\JHK-20.jpg" />
+    <Content Include="Images\Knives\Full\JHK-3.jpg" />
+    <Content Include="Images\Knives\Full\JHK-4.jpg" />
+    <Content Include="Images\Knives\Full\JHK-5.jpg" />
+    <Content Include="Images\Knives\Full\JHK-8.jpg" />
+    <Content Include="Images\Knives\Full\JHK-9.jpg" />
+    <Content Include="Images\Knives\Full\JHK-ST1.jpg" />
+    <Content Include="Images\Knives\Full\JHK-ST2.jpg" />
+    <Content Include="Images\Knives\Full\PB-BS-1.jpg" />
+    <Content Include="Images\Knives\Full\PB-BS-2.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-CDP.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-CPK.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-DEFEND.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-DENT.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-DLS.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-FOF.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-GRANDS.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-HISST.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-KODIAK.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-RPK.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-SCOUT.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-TACTSK.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-TITAN.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-UNDER.jpg" />
+    <Content Include="Images\Knives\Full\OVKT-UNZIP.jpg" />
+    <Content Include="Images\Knives\Full\PB-BS-3.jpg" />
+    <Content Include="Images\Knives\Full\PB-BS-4.jpg" />
+    <Content Include="Images\Knives\Full\PB-BS-5.jpg" />
+    <Content Include="Images\Knives\Full\SCK-101.jpg" />
+    <Content Include="Images\Knives\Full\SCK-102.jpg" />
+    <Content Include="Images\Knives\Full\SCK-103.jpg" />
+    <Content Include="Images\Knives\Full\SCK-109.jpg" />
+    <Content Include="Images\Knives\Full\SCK-111.jpg" />
+    <Content Include="Images\Knives\Full\SCK-3.jpg" />
+    <Content Include="Images\Knives\Full\SCK-617.jpg" />
+    <Content Include="Images\Knives\Full\SCK-7.jpg" />
+    <Content Include="Images\SalePriceBG.png" />
     <Content Include="Images\slide-show-image-1.jpg" />
     <Content Include="Images\slide-show-image-10.jpg" />
     <Content Include="Images\slide-show-image-2.jpg" />
@@ -392,6 +451,7 @@
     <Content Include="Images\slide-show-image-8.jpg" />
     <Content Include="Images\slide-show-image-9.png" />
     <Content Include="Images\ui-icons_454545_256x240.png" />
+    <Content Include="Images\ui-icons_ffffff_256x240.png" />
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
@@ -407,6 +467,13 @@
     <Content Include="Areas\ProductSearch\Views\Web.config" />
     <Content Include="Areas\ProductSearch\Views\Shared\Index.cshtml" />
     <Content Include="Areas\ProductSearch\Views\Shared\Index - Copy.cshtml" />
+    <Content Include="Areas\FeaturedProducts\Views\Web.config" />
+    <Content Include="Areas\Support\Views\Web.config" />
+    <Content Include="Areas\Support\Views\Shared\Index.cshtml" />
+    <Content Include="Areas\Contact\Views\Web.config" />
+    <Content Include="Areas\Contact\Views\Shared\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\gskc - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\gskc - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.9.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -440,6 +507,7 @@
     <Content Include="Scripts\offcanvas.js" />
     <Content Include="Scripts\r.js" />
     <Content Include="Scripts\require.js" />
+    <Content Include="Areas\FeaturedProducts\App\FeaturedProducts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -466,6 +534,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Contact\Models\" />
+    <Folder Include="Areas\FeaturedProducts\Models\" />
+    <Folder Include="Areas\FeaturedProducts\Views\Shared\" />
+    <Folder Include="Areas\Support\Models\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -486,11 +558,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Areas\ProductSearch\App\Modules.d.ts" />
     <TypeScriptCompile Include="Areas\ProductSearch\App\ProductSearch.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout.mapping\knockout.mapping.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />
+    <TypeScriptCompile Include="Areas\FeaturedProducts\App\FeaturedProducts.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -12,22 +12,21 @@ namespace GSKC.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Manufacturer
+    public partial class ProductSection
     {
-        public Manufacturer()
+        public ProductSection()
         {
             this.Products = new HashSet<Product>();
         }
     
-        public int ManufacturerID { get; set; }
+        public int ProductSectionID { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> DateEntered { get; set; }
+        public Nullable<bool> IsActive { get; set; }
         public Nullable<int> EnteredByUserID { get; set; }
+        public Nullable<System.DateTime> DateEntered { get; set; }
+        public Nullable<int> UpdatedByUserId { get; set; }
         public Nullable<System.DateTime> DateUpdated { get; set; }
-        public Nullable<int> UpdatedByUserID { get; set; }
-        public bool IsActive { get; set; }
-        public string Filename { get; set; }
     
         public virtual ICollection<Product> Products { get; set; }
     }

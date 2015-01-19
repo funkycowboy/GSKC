@@ -173,8 +173,13 @@ interface KnockoutBindingHandlers {
 	template: KnockoutBindingHandler;
 
 	// Components (new for v3.2)
-	component: KnockoutBindingHandler;
+    component: KnockoutBindingHandler;
+
+    // Custom
+    afterHtmlRender: KnockoutBindingHandler;
 }
+
+
 
 interface KnockoutMemoization {
     memoize(callback: () => string): string;

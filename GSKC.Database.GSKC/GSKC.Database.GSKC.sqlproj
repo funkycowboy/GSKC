@@ -27,6 +27,8 @@
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <GenerateCreateScript>True</GenerateCreateScript>
     <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <AutoUpdateStatistics>False</AutoUpdateStatistics>
+    <AutoCreateStatistics>False</AutoCreateStatistics>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>

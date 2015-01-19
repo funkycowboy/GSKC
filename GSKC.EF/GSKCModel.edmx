@@ -19,6 +19,35 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Filename" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SKU" Type="varchar" MaxLength="15" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="SectionID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Description" Type="varchar" MaxLength="4000" />
+          <Property Name="Features" Type="varchar" MaxLength="4000" />
+          <Property Name="Specifications" Type="varchar" MaxLength="4000" />
+          <Property Name="RetailCost" Type="money" />
+          <Property Name="MsrpCost" Type="money" />
+          <Property Name="ShippingCost" Type="money" />
+          <Property Name="WholCost" Type="money" />
+          <Property Name="DealerCost" Type="money" />
+          <Property Name="ManufacturerID" Type="int" />
+          <Property Name="ItemNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Inventory" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsFeatured" Type="bit" Nullable="false" />
+          <Property Name="DateEntered" Type="smalldatetime" />
+          <Property Name="EnteredByUserID" Type="int" />
+          <Property Name="DateUpdated" Type="smalldatetime" />
+          <Property Name="UpdatedByUserID" Type="int" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="Weight" Type="float" />
+        </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
             <PropertyRef Name="ProductCategoryID" />
@@ -32,6 +61,99 @@
           <Property Name="UpdatedByUserId" Type="int" />
           <Property Name="DateUpdated" Type="smalldatetime" />
         </EntityType>
+        <EntityType Name="ProductSection">
+          <Key>
+            <PropertyRef Name="ProductSectionID" />
+          </Key>
+          <Property Name="ProductSectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="EnteredByUserID" Type="int" />
+          <Property Name="DateEntered" Type="smalldatetime" />
+          <Property Name="UpdatedByUserId" Type="int" />
+          <Property Name="DateUpdated" Type="smalldatetime" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="ProductImageURL" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Product_Manufacturers">
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="ManufacturerID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product1" Type="Self.Product" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product1">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="Product1" Type="Self.Product" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductCategory">
+          <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductSection">
+          <End Role="ProductSection" Type="Self.ProductSection" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductSection">
+              <PropertyRef Name="ProductSectionID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ProductCategory_ProductCategory">
           <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
           <End Role="ProductCategory1" Type="Self.ProductCategory" Multiplicity="0..1" />
@@ -46,7 +168,34 @@
         </Association>
         <EntityContainer Name="GSKCModelStoreContainer">
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductSection" EntityType="Self.ProductSection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Product_Manufacturers" Association="Self.FK_Product_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product" Association="Self.FK_Product_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Product1" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product1" Association="Self.FK_Product_Product1">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Product1" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductCategory" Association="Self.FK_Product_ProductCategory">
+            <End Role="ProductCategory" EntitySet="ProductCategory" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductSection" Association="Self.FK_Product_ProductSection">
+            <End Role="ProductSection" EntitySet="ProductSection" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Supplier" Association="Self.FK_Product_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
           <AssociationSet Name="FK_ProductCategory_ProductCategory" Association="Self.FK_ProductCategory_ProductCategory">
             <End Role="ProductCategory" EntitySet="ProductCategory" />
             <End Role="ProductCategory1" EntitySet="ProductCategory" />
@@ -63,6 +212,33 @@
             <End Role="ProductCategory1" EntitySet="ProductCategories" />
           </AssociationSet>
           <EntitySet Name="Manufacturers" EntityType="GSKCModel.Manufacturer" />
+          <EntitySet Name="Products" EntityType="GSKCModel.Product" />
+          <AssociationSet Name="FK_Product_Manufacturers" Association="GSKCModel.FK_Product_Manufacturers">
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product" Association="GSKCModel.FK_Product_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Product1" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Product1" Association="GSKCModel.FK_Product_Product1">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Product1" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductCategory" Association="GSKCModel.FK_Product_ProductCategory">
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="ProductSections" EntityType="GSKCModel.ProductSection" />
+          <EntitySet Name="Suppliers" EntityType="GSKCModel.Supplier" />
+          <AssociationSet Name="FK_Product_ProductSection" Association="GSKCModel.FK_Product_ProductSection">
+            <End Role="ProductSection" EntitySet="ProductSections" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Supplier" Association="GSKCModel.FK_Product_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="ProductCategory">
           <Key>
@@ -78,6 +254,7 @@
           <Property Name="DateUpdated" Type="DateTime" Precision="0" />
           <NavigationProperty Name="ProductCategory1" Relationship="GSKCModel.FK_ProductCategory_ProductCategory" FromRole="ProductCategory" ToRole="ProductCategory1" />
           <NavigationProperty Name="ProductCategory2" Relationship="GSKCModel.FK_ProductCategory_ProductCategory" FromRole="ProductCategory1" ToRole="ProductCategory" />
+          <NavigationProperty Name="Products" Relationship="GSKCModel.FK_Product_ProductCategory" FromRole="ProductCategory" ToRole="Product" />
         </EntityType>
         <Association Name="FK_ProductCategory_ProductCategory">
           <End Type="GSKCModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
@@ -104,7 +281,140 @@
           <Property Name="UpdatedByUserID" Type="Int32" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="Filename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="GSKCModel.FK_Product_Manufacturers" FromRole="Manufacturer" ToRole="Product" />
         </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SKU" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="SectionID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Features" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="Specifications" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="RetailCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MsrpCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ShippingCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WholCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DealerCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ManufacturerID" Type="Int32" />
+          <Property Name="ItemNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Inventory" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsFeatured" Type="Boolean" Nullable="false" />
+          <Property Name="DateEntered" Type="DateTime" Precision="0" />
+          <Property Name="EnteredByUserID" Type="Int32" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedByUserID" Type="Int32" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="Weight" Type="Double" />
+          <NavigationProperty Name="Manufacturer" Relationship="GSKCModel.FK_Product_Manufacturers" FromRole="Product" ToRole="Manufacturer" />
+          <NavigationProperty Name="Product1" Relationship="GSKCModel.FK_Product_Product" FromRole="Product" ToRole="Product1" />
+          <NavigationProperty Name="Product2" Relationship="GSKCModel.FK_Product_Product" FromRole="Product1" ToRole="Product" />
+          <NavigationProperty Name="Product11" Relationship="GSKCModel.FK_Product_Product1" FromRole="Product" ToRole="Product1" />
+          <NavigationProperty Name="Product3" Relationship="GSKCModel.FK_Product_Product1" FromRole="Product1" ToRole="Product" />
+          <NavigationProperty Name="ProductCategory" Relationship="GSKCModel.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
+          <NavigationProperty Name="ProductSection" Relationship="GSKCModel.FK_Product_ProductSection" FromRole="Product" ToRole="ProductSection" />
+          <NavigationProperty Name="Supplier" Relationship="GSKCModel.FK_Product_Supplier" FromRole="Product" ToRole="Supplier" />
+        </EntityType>
+        <Association Name="FK_Product_Manufacturers">
+          <End Type="GSKCModel.Manufacturer" Role="Manufacturer" Multiplicity="0..1" />
+          <End Type="GSKCModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturer">
+              <PropertyRef Name="ManufacturerID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ManufacturerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product">
+          <End Type="GSKCModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="GSKCModel.Product" Role="Product1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Product1">
+          <End Type="GSKCModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="GSKCModel.Product" Role="Product1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="Product1">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductCategory">
+          <End Type="GSKCModel.ProductCategory" Role="ProductCategory" Multiplicity="0..1" />
+          <End Type="GSKCModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductCategory">
+              <PropertyRef Name="ProductCategoryID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ProductSection">
+          <Key>
+            <PropertyRef Name="ProductSectionID" />
+          </Key>
+          <Property Name="ProductSectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="EnteredByUserID" Type="Int32" />
+          <Property Name="DateEntered" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedByUserId" Type="Int32" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Products" Relationship="GSKCModel.FK_Product_ProductSection" FromRole="ProductSection" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ProductImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Products" Relationship="GSKCModel.FK_Product_Supplier" FromRole="Supplier" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Product_ProductSection">
+          <End Type="GSKCModel.ProductSection" Role="ProductSection" Multiplicity="0..1" />
+          <End Type="GSKCModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductSection">
+              <PropertyRef Name="ProductSectionID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Supplier">
+          <End Type="GSKCModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="GSKCModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="SupplierID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -137,6 +447,59 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="GSKCModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="UpdatedByUserID" ColumnName="UpdatedByUserID" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="EnteredByUserID" ColumnName="EnteredByUserID" />
+                <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+                <ScalarProperty Name="IsFeatured" ColumnName="IsFeatured" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Inventory" ColumnName="Inventory" />
+                <ScalarProperty Name="ItemNumber" ColumnName="ItemNumber" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="DealerCost" ColumnName="DealerCost" />
+                <ScalarProperty Name="WholCost" ColumnName="WholCost" />
+                <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+                <ScalarProperty Name="MsrpCost" ColumnName="MsrpCost" />
+                <ScalarProperty Name="RetailCost" ColumnName="RetailCost" />
+                <ScalarProperty Name="Specifications" ColumnName="Specifications" />
+                <ScalarProperty Name="Features" ColumnName="Features" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="SKU" ColumnName="SKU" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductSections">
+            <EntityTypeMapping TypeName="GSKCModel.ProductSection">
+              <MappingFragment StoreEntitySet="ProductSection">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="UpdatedByUserId" ColumnName="UpdatedByUserId" />
+                <ScalarProperty Name="DateEntered" ColumnName="DateEntered" />
+                <ScalarProperty Name="EnteredByUserID" ColumnName="EnteredByUserID" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ProductSectionID" ColumnName="ProductSectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="GSKCModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="ProductImageURL" ColumnName="ProductImageURL" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

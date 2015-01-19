@@ -35,7 +35,7 @@ namespace GSKC.Web.Areas.ProductSearch.Controllers
             {
                 productCategories = this.productSearchService.GetProductCategories(),
                 manufacturers = this.productSearchService.GetProductManufacturers(),
-                pricingCategories = new SearchCriteriaModifyViewModel().PriceList
+                priceRanges = new SearchCriteriaModifyViewModel().PriceList
             };           
             return Json(data, JsonRequestBehavior.AllowGet);
         }
