@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="width:100%; padding:20px" id="SupportFAQs">
+    <div style="padding-bottom: 20px;">
+        <p>Please complete the following form and a Gatlin and Sons Knife Company representative will be in contact with you within 24 hours to address your concern/question. </p>
+    </div>
+    <div style="border-top: dotted 1px #000000; font-style:italic; padding-bottom: 20px;">
+        <span class="Required">* <span>Required Fields</span></span>
+    </div>
+    <form id="ContactUsForm" action="" onsubmit="return gskc.Utilities.validateContactForm(this)" method="post">
+               
+        <div class="form-column-layout col-lg-6">
+            <label>FirstName</label>
+            <input id="FirstName" type="text">                
+        </div>
+        <div class="form-column-layout col-lg-6">
+            <label>LastName</label>
+            <input id="LastName" type="text">
+        </div>
+        <div class="form-column-layout col-lg-6">
+            <label>PhoneNumber</label>
+            <input id="PhoneNumber" type="text">
+        </div>
+        <div class="form-column-layout col-lg-6">
+            <label>Email Address<span class="Required">*</span></label>
+            <input id="EmailAddress" type="text">
+        </div>
+        <div class="form-column-layout col-lg-6">
+            <label>Category<span class="Required">*</span></label>
+            <select id="Category" class="SearchFormElementsFont">
+                <option>--Select One--</option>
+                <option>Website Issues</option>
+                <option>General Questions</option>
+                <option>Ordering</option>
+                <option>Shipping</option>
+                <option>Returns/Refunds</option>
+            </select>
+        </div>
+        <div class="form-column-layout col-lg-6">
+            <label style="vertical-align:top">Comments</label>
+            <textarea id="Comments" cols="50" rows="5" class="SearchFormTextAreaFont"></textarea>
+        </div>             
+        <div>@*<%'=recaptcha_challenge_writer()%>*@</div>
+        <div class="col-lg-12" style="border-top: dotted 1px #000000; font-style:italic; padding-bottom: 20px;"></div>
+        <div class="col-lg-12" style="text-align: right"><button class="orange" type="submit" name="Submit" style="width: 100px">Submit</button></div>
+</form>
+</div>

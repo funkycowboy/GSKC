@@ -1,0 +1,915 @@
+body {
+    width: 100%;
+}
+
+.FeaturedKnifeHeaderFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .9em;
+    font-weight: bold;
+    color: #000066;
+}
+
+.FeaturedKnifeTextFont {
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: .8em;
+    color: #000000;
+    text-align: left;
+}
+
+.KnifeHeaderFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+.BoldFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000000;
+}
+
+P {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #000000;
+}
+
+.MSRPFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #990000;
+    text-decoration: line-through;
+}
+
+td, div {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #000000;
+}
+
+.OurPriceFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: #000000;
+    font-weight: bold;
+}
+
+.CopyrightFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    color: #FFFFFF;
+}
+
+.ErrorFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #990000;
+}
+
+.DateFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #FFF;
+}
+
+.SuccessFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000066;
+}
+
+.ProductFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #333333;
+}
+
+.SpecialsFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-weight: bold;
+    color: #000;
+}
+
+.SubHeaderFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    color: #000000;
+}
+
+.ArticlesFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+}
+
+.BreadCrumbFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.UserInfoFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.NewsHeadlineFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    color: #000066;
+}
+
+.NewsSourceFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    color: #000000;
+}
+
+.TableStyle td {
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+}
+
+.TableStyle2 {
+    border-left: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-top: 1px solid #000000;
+}
+
+.TopMenuIconFont {
+    font-family: Webdings;
+    color: #575757;
+    font-size: x-small;
+    cursor: pointer;
+}
+
+.TopMenuButtonStyle {
+    background-repeat: repeat-x;
+    cursor: pointer;
+    width: 125px;
+    text-align: center;
+    height: 15px;
+    padding: 5px;
+    border-right: 1px dotted #000;
+}
+
+    .TopMenuButtonStyle:hover {
+        background: url(/Images/InterfaceElements/bg_button-large-hover.gif);
+        color: #000;
+        font-weight: normal;
+    }
+
+.TopMenuButtonContainer {
+    background: url(/Images/InterfaceElements/bg_button-large.gif);
+    background-repeat: repeat-x;
+    background-color: #b7bcc0;
+}
+
+.TopMenuButtonStyle a {
+    font-family: Helvetica;
+    color: #333333;
+    font-size: 8pt;
+    text-decoration: none;
+}
+
+.TopMenuButtonHiliteStyle {
+    background: url(/Images/InterfaceElements/bg3_button.gif);
+}
+
+    .TopMenuButtonHiliteStyle span {
+        font-family: Helvetica;
+        color: #FFFFFF;
+        font-size: 7pt;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .TopMenuButtonHiliteStyle a {
+        font-family: Helvetica;
+        color: #FFFFFF;
+        font-size: 7pt;
+        text-decoration: none;
+    }
+
+.shopping-cart-button-style {
+    background: url(/Images/InterfaceElements/shopping-cart-icon.png) 10px 7px;
+    background-repeat: no-repeat;
+    padding: 5px;
+    background-color: #f08e02;
+    width: 135px;
+    border: solid 1px #f08e02;
+    color: #FFFFFF;
+    font-size: 11px;
+    cursor: pointer;
+    margin: 0;
+}
+
+    .shopping-cart-button-style:hover {
+        background-color: #fe9704;
+        border: solid 1px #fe9704;
+    }
+
+select {
+    color: #333333;
+    font-size: 12px;
+    background: #F1F1E4;
+    width: 175px;
+    height: 30px;
+}
+
+#ProductSearch .search-type {
+    font-weight: normal; 
+    float:left; 
+    margin: 0 5px; 
+    color:#fff;
+    font-size: 15px;
+}
+
+#ProductSearch input[type=text] {
+    background-color: #fff;
+    padding: 7px;
+    width: 100%;
+    margin-left: 0; 
+    border: 1px solid gray;
+    border-bottom:none;
+}
+ input[type=text],
+.SearchFormElementsFont {
+    color: #333333;
+    font-size: 12px;
+    background: #F1F1E4;
+    width: 175px;
+    padding-left: 5px;
+    /*text-transform:uppercase;*/
+}
+
+.SearchFormTextAreaFont {
+    color: #333333;
+    font-size: x-small;
+    background: #F1F1E4;
+    font-family: Arial;
+    
+}
+
+.FormElementsFont {
+    color: #333333;
+    font-size: 12px;
+    /*background:#F1F1E4;*/
+}
+
+.FormElementsNoWidthFont {
+    color: #333333;
+    font-size: 12px;
+}
+
+/*.FormElementsExampleFont {
+	color: #000066;
+	font-size: .8em;
+}*/
+
+.FormElementsExampleFont {
+    color: #535274;
+    font-size: .9em;
+}
+
+.FooterLinksFont {
+    font-family: Tahoma;
+    font-size: xx-small;
+    color: #535274;
+    text-decoration: underline;
+}
+
+.SearchOptionsFont {
+    font-family: Tahoma;
+    color: #9D9D9D;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+.MoreInformationFont {
+    font-family: Arial, Helvetica, sans-serif;
+    /*font-size: .8em;*/
+    color: #f08e02;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.PhotoNotAvailable {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: xx-small;
+    color: #706D21;
+}
+
+.SearchResultsFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: gray;
+}
+
+.ProductDetailTitleFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    color: #333333;
+}
+
+.AdministrationToolsFont {
+    font-family: Helvetica, sans-serif;
+    font-size: .9em;
+    color: #000000;
+    font-weight: bold;
+}
+
+.AdministrationMenuFont {
+    font-family: Helvetica, sans-serif;
+    font-size: .9em;
+    color: #000000;
+    text-decoration: underline;
+}
+
+.AdministrationMenuHeaderFont {
+    font-family: Helvetica, sans-serif;
+    font-size: .9em;
+    color: #000000;
+    font-weight: normal;
+}
+
+.AdministrationMenuSearchFont {
+    color: #535274;
+    font-size: .8em;
+}
+
+.SortableHeaderFont {
+    text-decoration: none;
+    font-size: xx-small;
+    color: #003366;
+    text-transform: uppercase;
+}
+
+.SortableHeaderIconFont {
+    font-family: Webdings;
+    color: #003366;
+    font-size: x-small;
+}
+
+.HeaderInfoFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    color: #003366;
+}
+
+.HeaderTitleFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.PreviousNextFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    color: #000000;
+    text-decoration: underline;
+    cursor: pionter;
+}
+
+.RecordsFont {
+    text-decoration: none;
+    font-size: xx-small;
+    color: #003366;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.RecordsetOutline {
+    height: auto;
+    width: 500;
+    margin: 0px;
+    padding: 0px;
+    clear: none;
+    float: none;
+    border: 1px solid #003366;
+}
+
+.Required {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: normal;
+    color: red;
+}
+
+.Required {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: normal;
+    color: red;
+}
+
+    .Required span {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-style: italic;
+        color: Gray;
+    }
+
+/***************** FAQ Styles*****************/
+
+#SupportFAQs > div {
+    color: #333;
+    padding-top: 5px;
+}
+
+#SupportFAQs  div.topic-header  {
+    font-weight:bold; 
+    font-size: 1em; 
+    padding: 15px 0; 
+    border-bottom: dotted 1px #000;
+}
+
+#SupportFAQs  div.faq-question  {     
+    font-weight: bold; 
+    margin-bottom: 5px; 
+}
+
+    #SupportFAQs  div.faq-question > span   {     
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+    #SupportFAQs  div.faq-answer  {     
+    margin-bottom: 20px; 
+}
+
+    #SupportFAQs  div.faq-answer > span   {     
+        display: inline-block;
+        margin-right: 8px;
+    }
+
+.ProductCompare td {
+    border-bottom: dotted 1px #000;
+    border-right: dotted 1px #000;
+    padding: 5px 5px 5px 5px;
+}
+
+.NoBorder td {
+    border: 0px 0px 0px 0px;
+}
+
+.product-thumb-bg {
+    background: url(/Images/interfaceelements/prod_bg.gif) no-repeat -2px 0px;
+    width: 117px;
+    height: 142px;
+    cursor: pointer;
+    padding-top: 0px;
+}
+
+.shadow {
+    -moz-box-shadow: 10px 10px 11px #434343;
+    -webkit-box-shadow: 10px 10px 11px #434343;
+    box-shadow: 10px 10px 11px #434343;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#434343')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#434343');
+}
+
+#ImageContainer div.image {
+    width: 100%;
+    /*max-width:526px; */
+    height: 260px;
+    position: absolute;
+    left: -250px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.category-image-1, .category-image-2, .category-image-3, .category-image-4, .category-image-5 {
+    background-color: #000;
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    width: 20%;
+    height: 66px;
+    position: relative;
+    left: 0;
+    top: 0;
+    border: 1px solid #fff;
+    margin-left: 0;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+}
+
+.category-image-1 {
+    background-position: 0 0;
+    background: url(/Images/category-fixed-blade.png);
+}
+
+.category-image-2 {
+    background-position: 0 0;
+    background: url(/Images/category-folder.png);
+}
+
+.category-image-3 {
+    background-position: 0 0;
+    background: url(/Images/category-multi-blade.png);
+}
+
+.category-image-4 {
+    background-position: 0 0;
+    background: url(/Images/category-throwing.png);
+}
+
+.category-image-5 {
+    background-position: 0 0;
+    background: url(/Images/category-tomahaks.png);
+}
+
+    .category-image-1:hover,
+    .category-image-2:hover,
+    .category-image-3:hover,
+    .category-image-4:hover,
+    .category-image-5:hover {
+        /*background-position: -100px -200px;*/
+    }
+
+        .category-image-1:hover div,
+        .category-image-2:hover div,
+        .category-image-3:hover div,
+        .category-image-4:hover div,
+        .category-image-5:hover div {
+            background-color: #000;
+        }
+
+    .category-image-1 div,
+    .category-image-2 div,
+    .category-image-3 div,
+    .category-image-4 div,
+    .category-image-5 div {
+        color: #fff;
+        font-weight: bolder;
+        font-family: Arial;
+        margin-top: 44px;
+        display: block;
+        background-color: #f08e02;
+        opacity: 1.0;
+        filter: alpha(opacity=100);
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+.button-arrow {
+    /*position:absolute; 
+            z-index:100; 
+            right: 7px; 
+            top:45px; */
+    background: url(/Images/ui-icons_454545_256x240.png) 608px -192px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: #FFF;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 2px solid orange;
+}
+
+.open {
+    background-position: 640px -192px;
+}
+
+.button-edit {
+    background: url(/Images/ui-icons_ffffff_256x240.png) 701px -112px;
+    cursor: pointer;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 2px solid #f08e02;
+    width: 17px;
+    height: 17px;
+}
+
+.content li {
+    /*margin-left: -35px;*/
+    border-bottom: 1px dotted #ccc;
+}
+
+    .content li:hover {
+        background-color: #F1F1E4;
+        cursor: pointer;
+    }
+
+    .content li:last-child {
+        border-bottom: 0 dotted #ccc;
+    }
+
+    .content li label {
+        margin-left: 8px;
+    }
+
+.check-all {
+    background: url(/Images/checkbox-check.png);
+    width: 13px;
+    height: 13px;
+}
+
+    .check-all:hover {
+        background: url(/Images/checkbox-check-hover.png);
+    }
+
+.uncheck-all {
+    background: url(/Images/checkbox-uncheck.png);
+    width: 13px;
+    height: 13px;
+}
+
+    .uncheck-all:hover {
+        background: url(/Images/checkbox-uncheck-hover.png);
+    }
+
+button, .button {
+    padding: 5px 5px;
+    color: #fff;
+    font-size: 12px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.orange {
+    border: solid 1px #f08e02;
+    background-color: #f08e02;
+}
+
+    .orange:hover {
+        background-color: #fe9704;
+    }
+
+.disabled {
+    border: solid 1px #f08e02;
+    background-color: #f08e02;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=10);
+    opacity: 0.1;
+}
+
+.gray {
+    border: solid 1px gray;
+    background-color: gray;
+}
+
+    .gray:hover {
+        background-color: #ccc;
+    }
+
+.compare {
+    font-size: 12px;
+    color: #000;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+div#Header {
+    height: 107px;
+    background: url(/Images/GSKC_Trailer_Side_mist_website_bg.png) 266px -79px;
+    background-color: #000;
+    background-repeat: no-repeat;
+}
+
+.lb-data .lb-caption {
+    color: #ccc;
+}
+
+.loading {
+    position: absolute;
+    z-index: 100;
+    top: 300px;
+    width: 100%;
+    opacity: 2;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+    .loading div {
+        padding: 10px;
+        border: 2px solid gray;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+        background-color: #fff;
+        width: 100px;
+        text-align: center;
+        margin-left: 187px;
+    }
+
+.filter-list, .selected-list {
+    border-top: 1px solid gray;
+    /*border-bottom: 1px solid gray;*/
+    background-color: #f9f9f9;
+}
+
+/*@media (min-width: 768px) {
+    .filter-list {
+        display:inline;
+    }
+}*/
+
+.rounded-corner-scroll {
+    /*-webkit-border-top-left-radius: 9px;
+    -webkit-border-bottom-left-radius: 9px;
+    -moz-border-radius-topleft: 9px;
+    -moz-border-radius-bottomleft: 9px;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;*/
+}
+
+.rounded-corner-noscroll {
+    /* -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;*/
+}
+
+@media screen and (max-width: 767px) {
+    li.nav-menu-spacer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #LogoBG {
+        margin: 0 auto;
+        width: 393px;
+        height: 70px;
+        background: url(/Images/GSKC_Trailer_Side_mist_website4_bg.png) 0px 0px;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #LogoBG {
+        margin: 0 auto;
+        width: 468px;
+        height: 107px;
+        background: url(/Images/GSKC_Trailer_Side_mist_website2_bg.png);
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .gskc-logo{
+        position: absolute; 
+        z-index: 1000; 
+        top: -9px; 
+        left:50%; 
+        margin-left: -157px; 
+        width:275px;
+    }
+
+        .gskc-logo img {
+            width: 260px; 
+            max-width: 260px;
+        }
+    li.nav-menu-spacer {
+        width: 5%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .gskc-logo{
+        position: absolute; 
+        z-index: 1000; 
+        top: -9px; 
+        left:50%; 
+        margin-left: -157px; 
+        width:275px;
+    }
+
+        .gskc-logo img {
+            width: 260px; 
+            max-width: 260px;
+        }
+    li.nav-menu-spacer {
+        width: 5%;
+    }
+}
+
+@media (max-width: 767px) {
+    .gskc-logo {
+        position: absolute;
+        z-index: 1000;
+        top: -16px;
+        left: 50%;
+        margin-left: -105px;
+        width: 200px;
+    }
+        .gskc-logo img {
+            width: 200px; 
+            max-width: 200px;
+        }
+}
+
+.form-column-layout {
+    margin-bottom:10px;
+}
+
+.form-column-layout > label {
+    width: 100px;
+}
+
+
+/*@media (max-width: 400px) {*/
+    .ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;        
+        width: 100%;
+        /*max-width:200px;*/
+        display: inline-block;
+    }
+/*}*/
+
+#ProductSearchButton.btn {
+    background-color: #f08e02;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    margin-top: -1px;
+    padding: 11px 14px;
+    color:#FFF;
+    border: 0 solid #ccc;
+}
+
+    #ProductSearchButton.btn:hover {
+        background-color: #fe9704;
+        color: #FFF;
+    }
+
+#SlideIndicatorButton.btn {
+    background-color: #f08e02;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    margin: -1px 0 0 0 ;
+    padding: 10px 13px;
+    color:#FFF;
+}
+
+
+    #SlideIndicatorButton.btn:hover {
+        background-color: #fe9704;
+        color: #FFF;
+    }
+
+#FooterSearchButton {
+    background-color: #f08e02; 
+    width: 100%; 
+    border: 1px solid #FFF; 
+    margin: 0; 
+    padding:20px 0; 
+    font-size: 18px
+}
+
+    #FooterSearchButton:hover {
+        background-color: #fe9704;
+        color: #FFF;
+    }
+
+@media screen and (max-width: 767px) {
+
+    .show-hide {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .section-header {
+        border-bottom: 1px dotted gray;
+        border-right: 1px dotted gray;
+        padding: 10px 50px;
+        background-color: gray;
+        position: relative;
+        white-space: nowrap;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .section-header {
+        border-bottom: 1px dotted gray;
+        border-right: 1px dotted gray;
+        padding: 10px 20px;
+        background-color: gray;
+        position: relative;
+        white-space: nowrap;
+    }
+}
