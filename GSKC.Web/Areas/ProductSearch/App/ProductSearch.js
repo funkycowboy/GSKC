@@ -108,6 +108,7 @@
                 targetArrayRemove.remove(data);
                 data.clicked(true);
                 targetArrayAdd.push(data);
+                self.initializeControls();
             };
             self.removeSelected = function (param, data, event) {
                 switch (param) {
@@ -159,7 +160,15 @@
             self.slideFilterList = function () {
                 var $target = $(event.target);
                 $target.parent().find(".button-arrow").toggleClass("open");
-                $target.closest(".filter-header").find(".filter-list-parent").slideToggle('slow');
+
+                //alert( $target.closest(".filter-header").find(".filter-list").height());
+                $target.closest(".filter-header").find(".filter-list-parent").slideToggle('slow', function () {
+                    //$target.closest(".filter-header").find(".filter-list").css({height: '210px'});
+                });
+            };
+
+            self.initializeControls = function () {
+                $("footer").show();
             };
         };
         $.getJSON("/ProductSearch/Home/GetProductsInfo", function (data) {

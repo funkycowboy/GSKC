@@ -377,6 +377,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\bg_button-large-blk-hover.png" />
+    <Content Include="Images\bg_button-large-blk.png" />
     <Content Include="Images\bg_button-large-hover.gif" />
     <Content Include="Images\bg_button-large.gif" />
     <Content Include="Images\bg_button.gif" />
@@ -390,7 +392,10 @@
     <Content Include="Images\checkbox-uncheck-hover.png" />
     <Content Include="Images\checkbox-uncheck.png" />
     <Content Include="Images\Deal.png" />
+    <Content Include="Images\gskc-icon.png" />
     <Content Include="Images\GSKC_Trailer_Side_mist_website2_bg.png" />
+    <Content Include="Images\GSKC_Trailer_Side_mist_website3_bg.png" />
+    <Content Include="Images\GSKC_Trailer_Side_mist_website4_bg.png" />
     <Content Include="Images\GSKC_Trailer_Side_mist_website_bg.png" />
     <Content Include="Images\GSKC_Trailer_Side_mist_website_logo.png" />
     <Content Include="Images\HaveAKnifeDay_black.png" />
@@ -439,6 +444,7 @@
     <Content Include="Images\Knives\Full\SCK-3.jpg" />
     <Content Include="Images\Knives\Full\SCK-617.jpg" />
     <Content Include="Images\Knives\Full\SCK-7.jpg" />
+    <Content Include="Images\landscape.png" />
     <Content Include="Images\SalePriceBG.png" />
     <Content Include="Images\slide-show-image-1.jpg" />
     <Content Include="Images\slide-show-image-10.jpg" />

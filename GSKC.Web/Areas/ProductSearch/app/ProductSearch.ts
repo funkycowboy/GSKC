@@ -108,7 +108,8 @@ function getProductInfo() {
                  
             targetArrayRemove.remove(data);
             data.clicked(true);
-            targetArrayAdd.push(data);                                  
+            targetArrayAdd.push(data);   
+            self.initializeControls();                               
         };
         self.removeSelected = function (param,data,event) {        
             switch(param){
@@ -158,9 +159,16 @@ function getProductInfo() {
         };
         self.slideFilterList = function(){
             var $target = $(event.target);
-            $target.parent().find(".button-arrow").toggleClass("open");
-            $target.closest(".filter-header").find(".filter-list-parent").slideToggle('slow');
-        };                          
+            $target.parent().find(".button-arrow").toggleClass("open");           
+            //alert( $target.closest(".filter-header").find(".filter-list").height());
+            $target.closest(".filter-header").find(".filter-list-parent").slideToggle('slow', function(){
+                //$target.closest(".filter-header").find(".filter-list").css({height: '210px'});
+            });
+        };          
+        
+        self.initializeControls = function(){
+            $("footer").show();
+        };                
               
     };
     $.getJSON("/ProductSearch/Home/GetProductsInfo", function (data) {        

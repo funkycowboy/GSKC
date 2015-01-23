@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
 
@@ -12,11 +13,184 @@
     @Scripts.Render("~/bundles/knockout")
     <script src="/Scripts/require.js"></script>
     <script src="/Scripts/config.js"></script>
+    <style>
+        @@media (max-width: 767px) {
+
+            .sidenav {
+                position: absolute;
+                /*top: 38px;*/
+                height: 0;
+                width: 0;
+                overflow: hidden;
+                right: 100%;
+                padding: 0;
+                z-index: 1009;
+            }
+
+                .sidenav.on {
+                    width: 100%;
+                    right: 0;
+                    -webkit-transition: all 1s ease 0s;
+                    -moz-transition: all 1s ease 0s;
+                    -o-transition: all 1s ease 0s;
+                    transition: all 1s ease 0s;
+                }
+
+                .sidenav.off {
+                    width: 100%;
+                    right: 100%;
+                    -webkit-transition: all 1s ease 0s;
+                    -moz-transition: all 1s ease 0s;
+                    -o-transition: all 1s ease 0s;
+                    transition: all 1s ease 0s;
+                }
+            
+        }
+
+            /* @@media (orientation: landscape) {
+            body {
+                -webkit-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                -o-transform: rotate(-90deg);
+                -ms-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+            }
+           }*/
+
+           /* Portrait */
+            @@media screen and (orientation:portrait) {
+                #landscape {visibility:hidden; }
+                #rotateplease {visibility:hidden; }
+            }
+
+            /* Landscape */
+            /*@@media screen and (max-width: 768px) and (orientation : landscape) {
+                #landscape {visibility:visible;}
+                #rotateplease {visibility:visible;}
+            }
+             */
+            #landscape{
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: #000000;
+                width: 100%;
+                height: 100%;
+                opacity: 0.5;
+                z-index: 1032;
+                text-align: center;
+            }
+            #rotateplease {
+                background: url(/Images/landscape.png) no-repeat scroll 0 0 transparent;
+                color: #FFFFFF;
+                position: absolute;
+                height: 145px;
+                width: 170px;
+                top: 50%;
+                left: 50%;
+                margin-top: -72px;
+                margin-left: -105px; 
+                padding-top: 109px;
+                text-align: center;
+                opacity: 1;
+                z-index: 1032;
+                text-align:center;
+            }
+
+            #rotateplease p b{
+                width: 170px;
+                margin-top:35px;
+                color: #FFF;
+            }
+    </style>
+    <script>
+
+        $(function () {
+            $('#ProductSearchButton').click(function () {
+                var $this = $(".sidenav");
+                if ($this.hasClass("on")) {
+                    $this.removeClass("on").addClass("off");
+                } else {
+                    $this.removeClass("off").addClass("on");
+                }
+            });
+            $('#SlideIndicatorButton').click(function () {
+                var $this = $(".sidenav");
+                if ($this.hasClass("on")) {
+                    $this.removeClass("on").addClass("off");
+                    $this.removeClass("glyphicon-triangle-right").addClass("glyphicon-triangle-left");
+
+                } else {
+                    $this.removeClass("off").addClass("on");
+                    $this.removeClass("glyphicon-triangle-left").addClass("glyphicon-triangle-right");
+                }
+
+            });
+
+           var xStart, yStart = 0;
+
+            document.addEventListener('touchstart', function (e) {
+                xStart = e.touches[0].screenX;
+                yStart = e.touches[0].screenY;
+            });
+
+            document.addEventListener('touchmove', function (e) {
+                var xMovement = Math.abs(e.touches[0].screenX - xStart);
+                var yMovement = Math.abs(e.touches[0].screenY - yStart);
+                //if (yMovement < yStart) {
+                //    e.preventDefault();
+                //}
+                if ((yMovement * 3) < xMovement) {
+                    e.preventDefault();
+                }
+            });            
+
+            // Listen for resize changes
+            window.addEventListener("resize", function () {
+                debugger;
+                if (window.outerWidth > window.outerHeight) {
+                    lockScroll();
+                }
+                else {
+                    unLockScroll();
+                }
+
+            }, false);
+        });
+
+        function lockScroll() {
+            $(document).bind("touchstart", function (event) {
+                event.preventDefault();
+            });
+            $(document).bind("touchmove", function (event) {
+                event.preventDefault();
+            });
+        }
+
+        function unLockScroll() {
+            $(document).unbind("touchstart");
+            $(document).unbind("touchmove");
+
+        }
+
+        function changeOrientation(event) {
+            $("#landscape").show();
+            $("#rotateplease").show();
+            if ($(window).width() > $(window).height()) {
+                lockScroll();
+            }
+            else {
+                unLockScroll();
+            }
+
+        }
+                    
+    </script>
 </head>
-<body>
+<body onorientationchange="changeOrientation(event)">
     <div>
         <div style="background-color: #000;">
-            <div style="margin: 0 auto; width: 468px; height: 107px; background: url(/Images/GSKC_Trailer_Side_mist_website2_bg.png); background-repeat: no-repeat;" />
+            <div id="LogoBG"></div>
         </div>
     </div>
 
@@ -47,30 +221,36 @@
             </div><!--/.nav-collapse -->
         </div>
     </div>
+    <div class="row">
+        <div style="position:absolute;left:0;z-index: 1010" class="visible-xs">
+            <button id="ProductSearchButton" type="button" class="btn btn-md glyphicon glyphicon-search pull-left"></button>
+        </div>
+        <div id="SearchPanel" class="col-lg-3 col-md-3 col-sm-3 sidenav" style="min-height:100%; padding-right: 0; background: #F1F1E4; height: 800px;border-right: 1px dotted #000;">
 
-    <div class="row row-offcanvas row-offcanvas-left">
-        <div id="SlidePanel" class="col-lg-3 col-md-3 col-sm-3 sidebar-offcanvas" style="min-height:100%; padding-right: 0; background: #F1F1E4;">
-            <div style="border-bottom: 1px dotted gray;border-right: 1px dotted gray; padding:10px;background-color:gray">
-                <span class="SubHeaderFont" style="color:#fff">Product Search</span>
+            <div class="section-header">
+                <span class="SubHeaderFont" style="color:#fff; white-space:nowrap">Product Search</span>
+                <div style="position:absolute; top:0;right:0; z-index: 1010">
+                    <button id="SlideIndicatorButton" type="button" class="btn btn-md glyphicon glyphicon-chevron-left pull-left visible-xs"></button>
+                </div>
             </div>
             @Html.Action("Index", "Home", new { Area = "ProductSearch" })
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-9 col-xs-12" style="padding-left: 0; padding-right: 0">
-            <div style="z-index: 1000; position:absolute;"><button type="button" class="btn btn-md glyphicon glyphicon-search pull-left visible-xs" data-toggle="offcanvas"></button></div>
+        <div id="BodyContent" class="col-lg-6 col-md-6 col-sm-9 col-xs-12" style="padding-left: 0; padding-right: 0;">
+
             @RenderBody()
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding-left: 0; padding-right: 0">
-            <div style="width: 100%; float: left; margin-top: 0;background-color: #F1F1E4">
-                <div style="border-bottom: 1px dotted #000;padding:10px 10px 10px 20px; background-color: #ececec;background-color:#c4c2c2">
+        <div id="OnTheRoad" class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="padding-left: 0; padding-right: 0; min-height:100%; background: #F1F1E4; height: 1644px;border-left: 1px dotted #000">
+            <div style="width: 100%; float: left; margin-top: 0;">
+                <div style="border-bottom: 1px dotted #000;padding:10px 10px 10px 20px; background-color: gray;">
                     <span class="SubHeaderFont" style="color:#fff">On the Road</span>
                 </div>
 
-                <div style="padding: 10px; background-color:#F1F1E4; text-align: center"><span style="font-weight: bold;">Look for us at the following events:</span></div>
-                <div style="padding-left: 20px;padding-right: 20px; background-color:#F1F1E4">
+                <div style="padding: 10px;text-align: center"><span style="font-weight: bold;">Look for us at the following events:</span></div>
+                <div style="padding-left: 20px;padding-right: 20px;">
                     <img alt="Loading" src="/Images/ajax-loader.gif" id="loading" style="padding-left: 50px; display:none;">
                     <iframe id="testIframe" src="http://www.gatlinandsonsknifecompany.com/Calendar/Index.aspx" marginheight="0" marginwidth="0" width="100%" height="325" frameborder="0" scrolling="no"></iframe>
                 </div>
-                <div style="border-bottom: 1px dotted #000;padding:10px 10px 10px 20px; background-color: #ececec;background-color:#c4c2c2" class="hidden-xs">
+                <div style="border-bottom: 1px dotted #000;padding:10px 10px 10px 20px; background-color: gray;" class="hidden-xs">
                     <span class="SubHeaderFont" style="color:#fff">Social Updates</span>
                 </div>
                 <div class="fb-like-box fb_iframe_widget hidden-xs" style="padding-left: 20px" data-href="https://www.facebook.com/GatlinAndSons" data-width="268" data-show-faces="false" data-header="true" data-stream="true" data-show-border="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=448378241936683&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FGatlinAndSons&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=false&amp;stream=true&amp;width=268"><span style="vertical-align: bottom; width: 100%; height: 425px;"><iframe name="f6f809218" width="100%" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like_box Facebook Social Plugin" src="http://www.facebook.com/plugins/like_box.php?app_id=448378241936683&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FW2xi4Tmu0YA.js%3Fversion%3D41%23cb%3Df243c93044%26domain%3Dwww.gatlinandsonsknifecompany.com%26origin%3Dhttp%253A%252F%252Fwww.gatlinandsonsknifecompany.com%252Ff2cab7e04%26relation%3Dparent.parent&amp;header=true&amp;href=https%3A%2F%2Fwww.facebook.com%2FGatlinAndSons&amp;locale=en_US&amp;sdk=joey&amp;show_border=false&amp;show_faces=false&amp;stream=true&amp;width=268" style="border: none; visibility: visible; width: 100%; height: 425px;" class=""></iframe></span></div>
@@ -78,13 +258,18 @@
 
         </div>
     </div>
+    
 
+    <footer class="navbar navbar-default navbar-fixed-bottom" style="display: none; ">
+        <div class="container" style="text-align:center;padding:0">
+            <button id="FooterSearchButton" type="button">SEARCH</button>
+        </div>
+    </footer>
 
-
+    <div id="landscape" style="display:none"></div>
+    <div id="rotateplease" style="display:none"><p><b>Rotate Device to Portrait</b></p></div>
 
     @Scripts.Render("~/bundles/bootstrap")
-
-
     @RenderSection("scripts", required: false)
 
     <script>
@@ -101,5 +286,7 @@
     </script>
 
 </body>
+
+
 
 </html>

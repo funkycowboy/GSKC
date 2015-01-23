@@ -1,17 +1,17 @@
 ﻿@*Search Section*@
 
-<div id="ProductSearch" style="background-color: #ececec; border-right: 1px solid gray;border-bottom: 1px solid gray; padding-bottom:100px;">
-    <div>
+<div id="ProductSearch" style="background-color: #ececec; border-right: 1px solid gray;border-bottom: 1px solid gray;">
+    <div class="filter-header">
         <!-- Default panel contents -->
-        <div style="background-color: #c4c2c2; padding: 10px 0;">
+        <div data-bind="click: $root.slideFilterList" style="background-color: #c4c2c2; padding: 10px 0; border-bottom: 1px dotted #FFF; cursor:pointer">
             <div class="button-arrow" style="float:left;margin-left: 5px"></div>
-            <div style="font-weight: bold; float:left; margin: 0 5px; color:#fff">Search by Product</div>
+            <div class="search-type">Search by Product</div>
             <div style="clear: both"></div>
         </div>
 
-        <div class="content row no-gutter" style="text-align:right">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"><input id="Keyword" name="Keyword" type="text" class="SearchFormElementsFont" maxlength="50" value="" placeholder="Name / Item No." style="width: 100%; font-size: 14px" /></div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"><button type="button" class="orange" style="width:100%; margin:0; padding: 8px 5px; font-weight:bold">Search</button></div>
+        <div class="content row no-gutter filter-list-parent show-hide" style="text-align:right">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"><input data-bind="click: $root.initializeControls" id="Keyword" name="Keyword" type="text" class="SearchFormElementsFont" maxlength="50" value="" placeholder="Name / Item No." style="width: 100%; font-size: 14px" /></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 hidden-xs"><button type="button" class="orange" style="width:100%; margin:0; padding: 8px 5px; font-weight:bold">Search</button></div>
             <div style="clear: both"></div>
         </div>
     </div>
@@ -20,12 +20,12 @@
     <div class="filter-header">
         <div data-bind="click: $root.slideFilterList" style="background-color: #c4c2c2; padding: 10px 0; border-bottom: 1px dotted #FFF; cursor:pointer">
             <div data-bind="click: $root.slideFilterList" class="button-arrow" style="float:left; margin-left: 5px"></div>
-            <div style="font-weight: bold; float:left; margin: 2px 5px; color: #fff">Search by Brand</div>
+            <div class="search-type">Search by Brand</div>
             <div class="uncheck-all hidden-xs hidden-sm hidden-md hidden-lg" style="float: left; cursor: pointer;margin: 5px 18px" title="Uncheck All"></div>
             <div style="clear: both"></div>
         </div>
 
-        <div class="filter-list-parent">
+        <div class="filter-list-parent show-hide">
             <div class="content" style="margin-left: 0">
                 <ul data-bind="foreach: {data : selectedManufacturers, afterAdd: animate}, visible: $root.showSelectedManufacturer" style="margin-bottom: 0;list-style:none; color: #f08e02;margin-left:-35px;">
                     <li data-bind="click: function(data, event) { $parent.removeSelected('manufacturer', data, event) }" style="display: none; padding-top:7px">
@@ -36,16 +36,16 @@
             </div>
             <div class=""><input data-bind="textInput: filterTextManufacturers" type="text" class="filter-text" placeholder="Type to Filter Options" /></div>
 
-            <div  style="clear:both"></div>
+            <div style="clear:both"></div>
             <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height: 210px;">
-                <ul class="list-group" data-bind="foreach:{data :  filteredManufacturers()}, afterHtmlRender : tidyList" style="list-style:none; margin-bottom: 0">
+                <ul class="list-group" data-bind="foreach:{data :  filteredManufacturers()}, afterHtmlRender : tidyList" style="list-style:none; margin-bottom: 0;height: 210px;">
                     <li data-bind="click: function(data, event) { $parent.addSelected('manufacturer', data, event) }" style="padding-top:7px">
                         <div class="ellipsis">
                             <input type="checkbox" data-bind="attr: {id:'Brand-' + ManufacturerId(), value: ManufacturerId() + '-' + Name()}" title="Click to add" name="ManufacturerID" />
                             <label style="display: inline;" data-bind="attr: {for:'Brand-' + ManufacturerId(), title: 'Click to add ' + Name()}" title="Click to Add"><span style="color:#f08e02; display: inline-block; width:40px">(<!--ko text: Count()--><!--/ko-->)</span> <!--ko text: Name()--><!--/ko--><!--commentout-ko text: (Name().length > 20 ? Name().substring(0, 20) + '...' : Name)--><!--/ko--></label>
                         </div>
 
-</li>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -56,12 +56,12 @@
     <div class="filter-header">
         <div data-bind="click: $root.slideFilterList" style="background-color: #c4c2c2; padding: 10px 0; border-bottom: 1px dotted #FFF;; cursor:pointer">
             <div data-bind="click: $root.slideFilterList" class="button-arrow" style="float:left;margin-left: 5px"></div>
-            <div style="font-weight: bold; float:left; margin: 2px 5px;color: #fff">Search by Price</div>
+            <div class="search-type">Search by Price</div>
             <!--<div class="check-all" style="float: right; cursor: pointer; margin: 0 5px;"title="Check All"></div>-->
             <div class="uncheck-all hidden-xs hidden-sm hidden-md hidden-lg" style="float: left; cursor: pointer; margin: 5px 24px" title="Uncheck All"></div>
             <div style="clear: both"></div>
         </div>
-        <div class="filter-list-parent">
+        <div class="filter-list-parent show-hide">
             <div class="content" style="margin-left: 0">
                 <ul data-bind="foreach: {data : selectedPriceRanges, afterAdd: animate}, visible: $root.showSelectedPrice" style="margin-bottom: 0;list-style:none; color: #f08e02;margin-left:-35px;">
                     <li data-bind="click: function(data, event) { $parent.removeSelected('price', data, event) }" style="display: none; padding-top:7px">
@@ -71,14 +71,14 @@
                 </ul>
             </div>
             <div class="hidden-xs" style="clear:both"></div>
-            <div class="content filter-list rounded-corner-noscroll" style="">
+            <div class="content filter-list rounded-corner-noscroll" style="height: 140px;">
                 <ul class="list-group" data-bind="foreach: {data : priceRanges, afterAdd: animate }" style="list-style:none;margin-bottom:0">
                     <li data-bind="click: function(data, event) { $parent.addSelected('price', data, event) }" style="padding-top: 7px">
                         <div style="max-width:250px;white-space: nowrap;">
                             <input type="checkbox" data-bind="checked: clicked, attr: {id : 'Price-' + PriceRangeId(), value: PriceRangeId()}" name="Price" title="Click to Add" />
                             <label data-bind="attr: {for: 'Price-' + PriceRangeId(), title: 'Click to add ' + Name()}"><span style="color:#f08e02;display: inline-block; width:40px">(<!--ko text: Count()--><!--/ko-->)</span> <!--ko text: Name()--><!--/ko--></label>
                         </div>
-</li>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -89,11 +89,11 @@
     <div class="filter-header">
         <div data-bind="click: $root.slideFilterList" style="background-color: #c4c2c2; padding: 10px 0; border-bottom: 1px dotted #FFF;; cursor:pointer">
             <div data-bind="click: $root.slideFilterList" class="button-arrow" style="float:left;margin-left: 5px"></div>
-            <div style="font-weight: bold; float:left; margin: 2px 5px;color: #fff">Search by Category</div>
+            <div class="search-type">Search by Category</div>
             <div class="uncheck-all hidden-xs hidden-sm hidden-md hidden-lg" style="float: left; cursor: pointer; margin: 5px 0" title="Uncheck All"></div>
             <div style="clear: both"></div>
         </div>
-        <div class="filter-list-parent">
+        <div class="filter-list-parent show-hide">
             <div class="content" style="margin-left: 0;">
                 <ul data-bind="foreach: {data : selectedCategories, afterAdd: animate}, visible: $root.showSelectedProduct" style="margin-bottom: 0;list-style:none; color: #f08e02;margin-left:-35px;">
                     <li data-bind="click: function(data, event) { $parent.removeSelected('product', data, event) }" style="display: none; padding-top:7px">
@@ -106,7 +106,7 @@
 
             <div style="clear:both"></div>
             <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height: 210px;">
-                <ul class="list-group" data-bind="foreach: {data : filteredCategories()},afterHtmlRender : tidyList" style="list-style:none;">
+                <ul class="list-group" data-bind="foreach: {data : filteredCategories()},afterHtmlRender : tidyList" style="list-style:none;height: 210px;">
                     <li data-bind="click: function(data, event) { $parent.addSelected('product', data, event) }" style="padding-top: 7px">
                         @*<div style="width:100%">*@
                         <div class="ellipsis">
@@ -121,7 +121,10 @@
             </div>
         </div>
     </div>
+
+    
 </div>
+
 
 <script>
 

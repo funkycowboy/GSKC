@@ -21,7 +21,7 @@
         </div>
     </div>
     <div>
-        <div style="float:left; padding: 10px; border-right: 1px dotted #000;" class="col-lg-6 col-md-8 col-sm-8 hidden-xs">
+        <div style="float:left; padding: 10px; border-right: 0px dotted #000;" class="col-lg-6 col-md-8 col-sm-8 hidden-xs">
             
                 <div style="padding-bottom:7px; padding: 0 10px 0 10px;">
                     <h1 class="SpecialsFont">Welcome to Gatlin and Sons Knife Company&trade;</h1>
@@ -77,12 +77,12 @@
                 </div>
        </div>
                 
-        <div style="padding: 0; float: left; border-right: 0 dotted #000;" id="FeaturedProducts" class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
-            <div style="border-bottom: 1px dotted #000; padding:10px; background-color:#c4c2c2;" class="hidden-xs">
+        <div style="padding: 0; float: left; border-left: 1px dotted #000;" id="FeaturedProducts" class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+            <div style="border-bottom: 1px dotted #000; padding:10px; background-color:gray; " class="hidden-xs">
                 <h2 class="SubHeaderFont" style="color:#fff; margin:0">Featured Products</h2>
             </div>
-            <div style="border-bottom: 1px dotted #000; padding:10px 52px; background-color:#c4c2c2;" class="visible-xs">
-                <h2 class="SubHeaderFont" style="color:#fff; margin:0">Products</h2>
+            <div style="border-bottom: 1px dotted #000; padding:12px 50px; background-color:gray;" class="visible-xs">
+                <h2 class="SubHeaderFont" style="color:#fff; margin:0">Deals of the Day</h2>
             </div>
             <div>
                 <div data-bind="foreach: products" style="padding:10px; visibility: visible" class="row">
@@ -93,7 +93,7 @@
                         <div style="position:absolute; z-index: 1001; top: 95px;right: 3px;color: #FFF;font-size: 1.4em;"><!--ko text: RetailCost--><!--/ko--></div>
                         <div style="position:absolute; z-index: 1000; top:91px; right:0"><img alt="Deal" src="/Images/SalePriceBG.png" /></div>
                         <div style="position:absolute; z-index: 999; top:0; left:0; padding-top: 5px;border: 1px solid #fff; width: 100%">
-                            <div data-bind="visible: (LoggedIn() && (GroupId() > 0))" style="position: absolute; z-index: 1000; right: -18px; bottom: 95px;">
+                            <div data-bind="visible: (LoggedIn() && (GroupId() > 0))" style="position: absolute; right: -6px; bottom: -50px; display:none;">
                                 <button id="EditProduct" data-bind="click: $parent.showAdmin" class="orange">
                                     <div class="button-edit" style="display: inline-block"></div><span style="margin-left: 3px;">Edit</span>
                                 </button>

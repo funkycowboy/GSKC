@@ -4531,17 +4531,29 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
         .nav > li > a {
-            position: relative;
-            display: block;
-            padding: 7px 0;
-            background: url(/Images/bg_button-large-blk.png);
-            color: #fff; /*#428bca;*/
-            text-decoration: none;
-            text-shadow: 1px 1px #9a5c03;
-            font-weight: bolder;
-            font-family: Tahoma;
-            background-color: #f08e02;
-            background-position-y: 14px;
+                    position: relative;
+                    display: block;
+                    padding: 7px 0;
+                    background: url(/Images/bg_button-large-blk.png);
+                    color: #fff; /*#428bca;*/
+                    text-decoration: none;
+                    text-shadow: 1px 1px #9a5c03;
+                    font-weight: bolder;                    
+                    background-color: #f08e02;
+                    background-position-y: 14px;
+                }
+        }
+        @media screen and (max-width: 767px) {
+            .nav > li > a {                    
+                font-family: Arial;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            .nav > li > a {
+                
+                font-family: Tahoma;
+            }
+           
         }
             .nav > li:last-child > a {
                 background-color: gray;
@@ -4720,22 +4732,50 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
         border-right: 1px dotted #fffcd0;
         float: none;
     }
-        .nav-justified > li:first-child, 
-        .nav-justified > li:first-child a {
-            border-top-left-radius: 12px;
+        @media screen and (max-width: 767px) {
+
+            .nav-justified > li:first-child,
+            .nav-justified > li:first-child a {
+                border-top-left-radius: 0;
+            }
+
+            .nav-justified > li:last-child,
+            .nav-justified > li:last-child a {
+                border-top-right-radius: 0;
+            }
         }
 
-        .nav-justified > li:last-child, 
-        .nav-justified > li:last-child a {
-            border-top-right-radius: 12px;
+         @media screen and (min-width: 768px) {
+
+            .nav-justified > li:first-child,
+            .nav-justified > li:first-child a {
+                border-top-left-radius: 12px;
+            }
+
+            .nav-justified > li:last-child,
+            .nav-justified > li:last-child a {
+                border-top-right-radius: 12px;
+            }
         }
 
-        .nav-justified > li > a {
-            margin-bottom: 5px;
-            text-align: center;
-            white-space: nowrap;
-            font-size: 11px;
+        @media screen and (max-width: 767px) {
+            .nav-justified > li > a {
+                    margin-bottom: 5px;
+                    text-align: center;
+                    white-space: nowrap;
+                    font-size: 17px;
+                }
         }
+
+         @media screen and (min-width: 768px) {
+            .nav-justified > li > a {
+                    margin-bottom: 5px;
+                    text-align: center;
+                    white-space: nowrap;
+                    font-size: 11px;
+                }
+            }
+        
 
     .nav-justified > .dropdown .dropdown-menu {
         top: auto;
@@ -4965,17 +5005,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-toggle {
     position: relative;
     float: right;
-    padding: 9px 10px;
-    margin-top: 8px;
+    padding:11px 10px;
+    margin-top: 1px;
     margin-right: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 0;
     background-color: transparent;
     background-image: none;
     border: 1px solid transparent;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
     z-index: 1000;
+    top: -71px;
 }
 
     .navbar-toggle:focus {
@@ -5012,7 +5053,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
 @media (max-width: 767px) {
-    #SlidePanel {
+    #SearchPanel {
         /*padding-left: 30px;*/
     }
 
@@ -5376,12 +5417,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     }
 
     .navbar-inverse .navbar-toggle {
-        border-color: #333;
+        border-color: gray;
+        background-color: #333;
     }
 
         .navbar-inverse .navbar-toggle:hover,
         .navbar-inverse .navbar-toggle:focus {
-            background-color: #333;
+            background-color: #777;
         }
 
         .navbar-inverse .navbar-toggle .icon-bar {
@@ -7541,7 +7583,7 @@ button.close {
 }
 
 .hide {
-    display: none !important;
+    display: none;
 }
 
 .show {
@@ -7837,3 +7879,10 @@ button.close {
     padding-right:0;
     padding-left:0;
 }
+
+
+
+    /*#ProductSeachButton.btn:focus {
+        background-color: #f08e02;
+        color: #FFF;
+    }*/
