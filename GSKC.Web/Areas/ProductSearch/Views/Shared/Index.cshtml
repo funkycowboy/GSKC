@@ -37,8 +37,8 @@
             <div class=""><input data-bind="textInput: filterTextManufacturers" type="text" class="filter-text" placeholder="Type to Filter Options" /></div>
 
             <div style="clear:both"></div>
-            <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height: 210px;">
-                <ul class="list-group" data-bind="foreach:{data :  filteredManufacturers()}, afterHtmlRender : tidyList" style="list-style:none; margin-bottom: 0;height: 210px;">
+            <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height:210px">
+                <ul class="list-group" data-bind="foreach:{data :  filteredManufacturers()}, afterHtmlRender : tidyList" style="list-style:none; margin-bottom: 0;">
                     <li data-bind="click: function(data, event) { $parent.addSelected('manufacturer', data, event) }" style="padding-top:7px">
                         <div class="ellipsis">
                             <input type="checkbox" data-bind="attr: {id:'Brand-' + ManufacturerId(), value: ManufacturerId() + '-' + Name()}" title="Click to add" name="ManufacturerID" />
@@ -106,7 +106,7 @@
 
             <div style="clear:both"></div>
             <div class="content filter-list rounded-corner-scroll" style="overflow-y:scroll; overflow-x: hidden; height: 210px;">
-                <ul class="list-group" data-bind="foreach: {data : filteredCategories()},afterHtmlRender : tidyList" style="list-style:none;height: 210px;">
+                <ul class="list-group" data-bind="foreach: {data : filteredCategories()},afterHtmlRender : tidyList" style="list-style:none;">
                     <li data-bind="click: function(data, event) { $parent.addSelected('product', data, event) }" style="padding-top: 7px">
                         @*<div style="width:100%">*@
                         <div class="ellipsis">

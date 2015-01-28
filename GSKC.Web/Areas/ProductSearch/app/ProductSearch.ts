@@ -5,18 +5,7 @@ import $ = require('jquery');
 
 var  context = "#ProductSearch";
 
-function getProductInfo() {
-
-    ko.bindingHandlers.afterHtmlRender = {
-        update: function (element, valueAccessor, allBindings) {
-            // check if element has 'html' binding
-            if (!allBindings().foreach) return;
-            // get bound callback (don't care about context, it's ready-to-use ref to function)
-            var callback = valueAccessor();
-            // fire callback with new value of an observable bound via 'html' binding
-            callback(element);
-        }   
-    };
+function getProductInfo() {           
     
     var searchCriteriaBaseViewModel = function (data) {
         var self = this;
@@ -149,9 +138,9 @@ function getProductInfo() {
             var $list = $(element).closest(".filter-list");                                      
             var $filteredListContainer = $list;
             var $listContainer = $filteredListContainer;
-            var listContainerHeight = $listContainer.css("height");
-            var listHeight = $listContainer.find("ul").css("height");
-            if (parseInt(listHeight) < 200) {
+            var listContainerHeight = $listContainer.height();
+            var listHeight = $listContainer.find("ul").height();
+            if (parseInt(listHeight) > 0 && parseInt(listHeight) < 200) {
                 $listContainer.animate({ height: (parseInt(listHeight) + 40) });
             } else {
                 $listContainer.animate({ height: 210 });
@@ -160,15 +149,18 @@ function getProductInfo() {
         self.slideFilterList = function(){
             var $target = $(event.target);
             $target.parent().find(".button-arrow").toggleClass("open");           
-            //alert( $target.closest(".filter-header").find(".filter-list").height());
             $target.closest(".filter-header").find(".filter-list-parent").slideToggle('slow', function(){
-                //$target.closest(".filter-header").find(".filter-list").css({height: '210px'});
             });
         };          
         
         self.initializeControls = function(){
-            $("footer").show();
-        };                
+            if($(window).width() <= 767){
+                $("footer").show();
+            }else{
+                $("footer").hide();
+            }
+            $("footer").addClass("visible-xs");
+        };                               
               
     };
     $.getJSON("/ProductSearch/Home/GetProductsInfo", function (data) {        

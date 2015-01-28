@@ -13,181 +13,11 @@
     @Scripts.Render("~/bundles/knockout")
     <script src="/Scripts/require.js"></script>
     <script src="/Scripts/config.js"></script>
-    <style>
-        @@media (max-width: 767px) {
-
-            .sidenav {
-                position: absolute;
-                /*top: 38px;*/
-                height: 0;
-                width: 0;
-                overflow: hidden;
-                right: 100%;
-                padding: 0;
-                z-index: 1009;
-            }
-
-                .sidenav.on {
-                    width: 100%;
-                    right: 0;
-                    -webkit-transition: all 1s ease 0s;
-                    -moz-transition: all 1s ease 0s;
-                    -o-transition: all 1s ease 0s;
-                    transition: all 1s ease 0s;
-                }
-
-                .sidenav.off {
-                    width: 100%;
-                    right: 100%;
-                    -webkit-transition: all 1s ease 0s;
-                    -moz-transition: all 1s ease 0s;
-                    -o-transition: all 1s ease 0s;
-                    transition: all 1s ease 0s;
-                }
-            
-        }
-
-            /* @@media (orientation: landscape) {
-            body {
-                -webkit-transform: rotate(-90deg);
-                -moz-transform: rotate(-90deg);
-                -o-transform: rotate(-90deg);
-                -ms-transform: rotate(-90deg);
-                transform: rotate(-90deg);
-            }
-           }*/
-
-           /* Portrait */
-            @@media screen and (orientation:portrait) {
-                #landscape {visibility:hidden; }
-                #rotateplease {visibility:hidden; }
-            }
-
-            /* Landscape */
-            /*@@media screen and (max-width: 768px) and (orientation : landscape) {
-                #landscape {visibility:visible;}
-                #rotateplease {visibility:visible;}
-            }
-             */
-            #landscape{
-                position: absolute;
-                top: 0;
-                left: 0;
-                background-color: #000000;
-                width: 100%;
-                height: 100%;
-                opacity: 0.5;
-                z-index: 1032;
-                text-align: center;
-            }
-            #rotateplease {
-                background: url(/Images/landscape.png) no-repeat scroll 0 0 transparent;
-                color: #FFFFFF;
-                position: absolute;
-                height: 145px;
-                width: 170px;
-                top: 50%;
-                left: 50%;
-                margin-top: -72px;
-                margin-left: -105px; 
-                padding-top: 109px;
-                text-align: center;
-                opacity: 1;
-                z-index: 1032;
-                text-align:center;
-            }
-
-            #rotateplease p b{
-                width: 170px;
-                margin-top:35px;
-                color: #FFF;
-            }
-    </style>
     <script>
-
-        $(function () {
-            $('#ProductSearchButton').click(function () {
-                var $this = $(".sidenav");
-                if ($this.hasClass("on")) {
-                    $this.removeClass("on").addClass("off");
-                } else {
-                    $this.removeClass("off").addClass("on");
-                }
-            });
-            $('#SlideIndicatorButton').click(function () {
-                var $this = $(".sidenav");
-                if ($this.hasClass("on")) {
-                    $this.removeClass("on").addClass("off");
-                    $this.removeClass("glyphicon-triangle-right").addClass("glyphicon-triangle-left");
-
-                } else {
-                    $this.removeClass("off").addClass("on");
-                    $this.removeClass("glyphicon-triangle-left").addClass("glyphicon-triangle-right");
-                }
-
-            });
-
-           var xStart, yStart = 0;
-
-            document.addEventListener('touchstart', function (e) {
-                xStart = e.touches[0].screenX;
-                yStart = e.touches[0].screenY;
-            });
-
-            document.addEventListener('touchmove', function (e) {
-                var xMovement = Math.abs(e.touches[0].screenX - xStart);
-                var yMovement = Math.abs(e.touches[0].screenY - yStart);
-                //if (yMovement < yStart) {
-                //    e.preventDefault();
-                //}
-                if ((yMovement * 3) < xMovement) {
-                    e.preventDefault();
-                }
-            });            
-
-            // Listen for resize changes
-            window.addEventListener("resize", function () {
-                debugger;
-                if (window.outerWidth > window.outerHeight) {
-                    lockScroll();
-                }
-                else {
-                    unLockScroll();
-                }
-
-            }, false);
-        });
-
-        function lockScroll() {
-            $(document).bind("touchstart", function (event) {
-                event.preventDefault();
-            });
-            $(document).bind("touchmove", function (event) {
-                event.preventDefault();
-            });
-        }
-
-        function unLockScroll() {
-            $(document).unbind("touchstart");
-            $(document).unbind("touchmove");
-
-        }
-
-        function changeOrientation(event) {
-            $("#landscape").show();
-            $("#rotateplease").show();
-            if ($(window).width() > $(window).height()) {
-                lockScroll();
-            }
-            else {
-                unLockScroll();
-            }
-
-        }
-                    
+        $(function () {require(['common'], function (common) {common.initialize();});});                   
     </script>
 </head>
-<body onorientationchange="changeOrientation(event)">
+<body>
     <div>
         <div style="background-color: #000;">
             <div id="LogoBG"></div>
@@ -247,8 +77,7 @@
 
                 <div style="padding: 10px;text-align: center"><span style="font-weight: bold;">Look for us at the following events:</span></div>
                 <div style="padding-left: 20px;padding-right: 20px;">
-                    <img alt="Loading" src="/Images/ajax-loader.gif" id="loading" style="padding-left: 50px; display:none;">
-                    <iframe id="testIframe" src="http://www.gatlinandsonsknifecompany.com/Calendar/Index.aspx" marginheight="0" marginwidth="0" width="100%" height="325" frameborder="0" scrolling="no"></iframe>
+                    @Html.Action("Index","Home", new {area = "Calendar"})
                 </div>
                 <div style="border-bottom: 1px dotted #000;padding:10px 10px 10px 20px; background-color: gray;" class="hidden-xs">
                     <span class="SubHeaderFont" style="color:#fff">Social Updates</span>
@@ -270,23 +99,8 @@
     <div id="rotateplease" style="display:none"><p><b>Rotate Device to Portrait</b></p></div>
 
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-    <script>
-        $('#opener').on('click', function () {
-            var panel = $('#slide-panel');
-            if (panel.hasClass("visible")) {
-                panel.removeClass('visible').animate({ 'margin-left': '-300px' });
-            } else {
-                panel.addClass('visible').animate({ 'margin-left': '0px' });
-            }
-            return false;
-        });
-
-    </script>
+    @RenderSection("scripts", required: false)    
 
 </body>
-
-
 
 </html>

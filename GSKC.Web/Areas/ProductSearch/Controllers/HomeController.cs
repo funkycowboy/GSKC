@@ -33,8 +33,8 @@ namespace GSKC.Web.Areas.ProductSearch.Controllers
         {
             var data = new
             {
-                productCategories = this.productSearchService.GetProductCategories(),
-                manufacturers = this.productSearchService.GetProductManufacturers(),
+                productCategories = this.productSearchService.GetProductCategories().OrderBy(x => x.Name),
+                manufacturers = this.productSearchService.GetProductManufacturers().OrderBy(x => x.Name),
                 priceRanges = this.productSearchService.GetPriceRanges()
             };           
             return Json(data, JsonRequestBehavior.AllowGet);

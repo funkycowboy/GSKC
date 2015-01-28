@@ -170,13 +170,15 @@ interface KnockoutBindingHandlers {
     uniqueName: KnockoutBindingHandler;
 
     // Rendering templates
-	template: KnockoutBindingHandler;
+    template: KnockoutBindingHandler;
 
-	// Components (new for v3.2)
+    // Components (new for v3.2)
     component: KnockoutBindingHandler;
 
     // Custom
     afterHtmlRender: KnockoutBindingHandler;
+    currency: KnockoutBindingHandler;
+    money: KnockoutBindingHandler;
 }
 
 

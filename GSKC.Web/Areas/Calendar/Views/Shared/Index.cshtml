@@ -1,0 +1,47 @@
+﻿    @*<link rel="stylesheet" href="/Content/jquery-ui.css" type="text/css" />
+
+    <script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>*@
+    <script language="javascript" type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            require(['calendar'], function (calendar) {
+                calendar.initialize();
+            });
+        });
+    </script>
+
+    <div id="Calendar">
+        <div id="calender-parent">
+            <script id="CalendarTemplate" type="x-jquery-tmpl">
+
+                <div class="calender-container" style="position: relative">
+                    <div class="start-date">
+                        <div style="display: inline-block; padding-left: 0"><img src="http://www.gatlinandsonsknifecompany.com/Images/InterfaceElements/IconCalendar_2.gif" style="vertical-align: middle" class="calender-image" /> </div>
+                        <div style="display: inline-block"><label id="lblStartDate">${Date}</label></div>
+                    </div>
+                    <div class="name">
+                        <label id="lblEventTitle" class="event-name">${Event}</label><br />
+                        <label id="lblLocation">${Location}</label>
+                    </div>
+                    <div class="time" style="display: none">
+                        <span style="display:block; font-weight:bold">Time:</span><span>${Time}</span>
+                    </div>
+                    <div class="website" style="display: none">
+                        <span style="display:block;">Click <a href='${Website}' id="Label1" style="color: #e7e7e7" target="_blank">here</a> for more information.</span>
+                    </div>
+                    <div class="map" style="width:100%; height:180px; margin: 10px 0; display: none; text-align: right">
+                        <!-- Google Map -->
+                        <iframe style="width: 100%; height:150px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${Address}&ie=UTF8&z=15&t=m&iwloc=near&output=embed"></iframe>
+                        <a target="_blank" style="font-size:11px; color: #e7e7e7; display:inline-block; margin-top: 5px" href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=${Address}&ie=UTF8&z=15&t=m&iwloc=near" class="more-info">View Larger Map &raquo;</a>
+                    </div>
+                    <div id="ShowHideDetails" class="button-arrow open" title="Click for more information"></div>
+                </div>
+
+            </script>
+        </div>
+    </div>
+
+
