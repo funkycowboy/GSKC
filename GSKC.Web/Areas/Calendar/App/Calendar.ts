@@ -1,10 +1,11 @@
-﻿/// <reference path="../../../Scripts/typings/jquery/jquery.tmpl.d.ts" />
+﻿/// <reference path="../../../Scripts/typings/jquery.tmpl/jquery.tmpl.d.ts" />
+/// <reference path="../../../scripts/typings/jqueryui/jqueryui.d.ts" />
+/// <reference path="../../../Scripts/typings/gapi/gapi.d.ts" />
 
 import $ = require('jquery');
 
 class Calendar {
     calendar:any;
-    gapi: any;
 
     bindClickEvents = () => {
         $(".button-arrow").click(function () {
@@ -17,7 +18,7 @@ class Calendar {
     }
     initializeModal = (modal) => {
 
-        (<any>$(modal)).dialog({
+        $(modal).dialog({
             autoOpen: false,
             show: 'fade',
             hide: 'fade',
@@ -25,7 +26,7 @@ class Calendar {
             closeText: "hide",
             closeOnEscape: false,
             close: function () {
-                (<any>$("#Modal")).dialog("destroy");
+                $("#Modal").dialog("destroy");
             },
             open: function () {
             },
@@ -70,12 +71,12 @@ class Calendar {
     }
 
     setupGoogleApi = () => {
-        (<any>gapi).client.setApiKey("AIzaSyAAlRUvok33SD15BhoTN8UHGXCU9Qh5G0s");
-        (<any>gapi).client.load('calendar', 'v3', this.makeApiCall);
+        gapi.client.setApiKey("AIzaSyAAlRUvok33SD15BhoTN8UHGXCU9Qh5G0s");+
+        gapi.client.load('calendar', 'v3', this.makeApiCall);
     }
 
     makeApiCall = () => {
-        var request = (<any>gapi).client.calendar.events.list({
+        var request = (<any>gapi.client).calendar.events.list({
             'calendarId': 'b16nmnt6h8cdg3airc1mnshpe8@group.calendar.google.com',
             'timeMin': new Date().toISOString(),
             'singleEvents': true,
@@ -106,8 +107,8 @@ class Calendar {
 
                 events.push(event);
             }
-            (<any>$('#CalendarTemplate')).tmpl(events).appendTo('#calender-parent');
-            _this.bindClickEvents;            
+            $('#CalendarTemplate').tmpl(events);//.appendTo('#calender-parent');
+            //_this.bindClickEvents;            
         });
     }
 

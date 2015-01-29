@@ -577,7 +577,9 @@
     <TypeScriptCompile Include="Areas\ProductSearch\App\ProductSearch.ts" />
     <TypeScriptCompile Include="Scripts\knockout.custom.bindings.ts" />
     <TypeScriptCompile Include="Scripts\modules.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.tmpl.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\gapi\gapi.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jqueryui\jqueryui.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\jquery.tmpl\jquery.tmpl.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout.mapping\knockout.mapping.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\knockout\knockout.d.ts" />

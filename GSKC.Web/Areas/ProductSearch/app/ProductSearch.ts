@@ -140,8 +140,8 @@ function getProductInfo() {
             var $listContainer = $filteredListContainer;
             var listContainerHeight = $listContainer.height();
             var listHeight = $listContainer.find("ul").height();
-            if (parseInt(listHeight) > 0 && parseInt(listHeight) < 200) {
-                $listContainer.animate({ height: (parseInt(listHeight) + 40) });
+            if (listHeight > 0 && listHeight < 200) {
+                $listContainer.animate({ height: listHeight + 40});
             } else {
                 $listContainer.animate({ height: 210 });
             }                           
