@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2013 for Web
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSKC.Web", "GSKC.Web\GSKC.Web.csproj", "{E748F90B-6E56-4C35-A5A6-A5FA48CDB439}"
 EndProject
@@ -35,6 +35,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2CFFA4
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSKC.Web.InventoryManagement", "GSKC.Web.InventoryManagement\GSKC.Web.InventoryManagement.csproj", "{A6A71D7E-2526-44D3-A93F-3A835FC91789}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +80,10 @@ Global
 		{99E60875-0C78-44C1-A4DD-8B4A1B65E628}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99E60875-0C78-44C1-A4DD-8B4A1B65E628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99E60875-0C78-44C1-A4DD-8B4A1B65E628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6A71D7E-2526-44D3-A93F-3A835FC91789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6A71D7E-2526-44D3-A93F-3A835FC91789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6A71D7E-2526-44D3-A93F-3A835FC91789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6A71D7E-2526-44D3-A93F-3A835FC91789}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +97,6 @@ Global
 		{13257B93-59B1-4C45-AEB9-278B740D94EF} = {C198B106-77A1-4452-A357-29CBCB34395D}
 		{464146E7-457C-47AF-8A54-29F8C5C20651} = {39E2F793-1C0A-4414-85CF-735127370B30}
 		{99E60875-0C78-44C1-A4DD-8B4A1B65E628} = {413F5E20-A045-41C1-88A4-5455427DBBDE}
+		{A6A71D7E-2526-44D3-A93F-3A835FC91789} = {413F5E20-A045-41C1-88A4-5455427DBBDE}
 	EndGlobalSection
 EndGlobal
